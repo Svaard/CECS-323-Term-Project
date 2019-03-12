@@ -1,1 +1,1 @@
-# CECS-323-Term-Project
+# CECS 323 Term Project
