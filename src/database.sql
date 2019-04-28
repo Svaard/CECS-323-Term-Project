@@ -150,10 +150,22 @@ CREATE TABLE CategoryLookupTable (
 
 --table for restaurant Employees
 CREATE TABLE Employee (
-  EID INT NOT NULL,
-  name VARCHAR(50),
-  jobTitle VARCHAR(50),
-  DOB DATE,
-  shift VARCHAR(10),
+  EID       INT NOT NULL,
+  name      VARCHAR(50),
+  jobTitle  VARCHAR(50),
+  DOB       DATE,
+  shift     VARCHAR(10),
   CONSTRAINT Employee_pk PRIMARY KEY (EID)
+);
+
+--table for chef position
+CREATE TABLE Chef (
+  jobDescription  VARCHAR(255),
+  experience      INT,
+  rating          INT,
+  shift           VARCHAR(10),
+  salary          FLOAT NOT NULL,
+  EID             INT NOT NULL,
+  CONSTRAINT Chef_pk PRIMARY KEY (salary, EID),
+  CONSTRAINT Chef_fk FOREIGN KEY (EID) REFERENCES Employee (EID)
 );
