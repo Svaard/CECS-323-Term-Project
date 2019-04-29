@@ -1,3 +1,35 @@
+--DROP TABLE HallOfFame
+--DROP TABLE Customer
+--DROP TABLE Addresses
+--DROP TABLE Phone
+--DROP TABLE Corporate
+--DROP TABLE Payments
+--DROP TABLE PaymentType
+--DROP TABLE Order
+--DROP TABLE OrderType
+--DROP TABLE OrderItem
+--DROP TABLE MenuItem
+--DROP TABLE MenuPricing
+--DROP TABLE MenuLookupTable
+--DROP TABLE Spiciness
+--DROP TABLE SpiceValueLookupTable
+--DROP TABLE Categories
+--DROP TABLE CategoryLookupTable
+--DROP TABLE Employee
+--DROP TABLE Chef
+--DROP TABLE Department
+--DROP TABLE LineCook
+--DROP TABLE HeadChef
+--DROP TABLE DishWasher
+--DROP TABLE Manager
+--DROP TABLE Maitre
+--DROP TABLE Tables
+--DROP TABLE SousChef
+--DROP TABLE WaitStaff
+--DROP TABLE Mentorships
+--DROP TABLE Shift
+
+
 --table for Hall of Fame
 CREATE TABLE HallOfFame (
   CID           INT NOT NULL,
@@ -168,4 +200,99 @@ CREATE TABLE Chef (
   EID             INT NOT NULL,
   CONSTRAINT Chef_pk PRIMARY KEY (salary, EID),
   CONSTRAINT Chef_fk FOREIGN KEY (EID) REFERENCES Employee (EID)
+);
+
+--lookup table for Departments
+CREATE TABLE Department (
+
+  --TODO Fill in enum values
+  department ENUM(),
+  CONSTRAINT Department_pk PRIMARY KEY (department)
+);
+
+--table for Line Cooks
+CREATE TABLE LineCook (
+  department  VARCHAR(30) NOT NULL,
+  EID         INT NOT NULL,
+  CONSTRAINT LineCook_pk PRIMARY KEY (department, EID),
+  CONSTRAINT LineCook_fk FOREIGN KEY (EID) REFERENCES Chef (EID)
+);
+
+--table for Head Chef
+CREATE TABLE HeadChef (
+  EID     INT NOT NULL,
+  recipes VARCHAR(255) NOT NULL,
+  CONSTRAINT HeadChef_pk PRIMARY KEY (EID),
+  CONSTRAINT HeadChef_fk FOREIGN KEY (EID) REFERENCES Chef (EID)
+);
+
+--table for Dish Washers
+CREATE TABLE DishWasher (
+  EID         INT NOT NULL,
+  hourlyRate  FLOAT,
+  CONsTRAINT DishWasher_pk PRIMARY KEY (EID),
+  CONSTRAINT Dishwasher_fk FOREIGN KEY (EID) REFERENCES Employee (EID)
+);
+
+--tables for Managers
+CREATE TABLE Manager (
+  EID     INT NOT NULL,
+  salary  FLOAT,
+  CONSTRAINT Manager_pk PRIMARY KEY (EID),
+  CONSTRAINT Manager_fk FOREIGN KEY (EID) REFERENCES Employee (EID)
+);
+
+--table for Maitre'd
+CREATE TABLE Maitre (
+  EID         INT NOT NULL,
+  tables      INT NOT NULL,
+  hourlyRate  FLOAT,
+  CONSTRAINT Maitre_pk PRIMARY KEY (EID, tables),
+  CONSTRAINT Maitre_fk1 FOREIGN KEY (EID) REFERENCES Employee (EID),
+  CONSTRAINT Maitre_fk2 FOREIGN KEY (tables) REFERENCES Tables (tables)
+);
+
+--lookup table for Tables
+CREATE TABLE Tables (
+  tables ENUM('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'),
+  CONSTRAINT Tables_pk PRIMARY KEY (tables)
+);
+
+--table for Sous Chefs
+CREATE TABLE SousChef (
+  EID       INT NOT NULL,
+  menuItems VARCHAR(255),
+  CONSTRAINT SousChef_pk PRIMARY KEY (EID),
+  CONSTRAINT SousChef_fk FOREIGN KEY (EID)
+);
+
+--table for the Wait Staff
+CREATE TABLE WaitStaff (
+  EID         INT NOT NULL,
+  hourlyRate  FLOAT,
+  CONSTRAINT WaitStaff_pk PRIMARY KEY (EID),
+  CONSTRAINT WaitStaff_fk FOREIGN KEY (EID) REFERENCES Employee (EID)
+);
+
+--table for Mentorships
+CREATE TABLE Mentorships (
+  EID       INT NOT NULL,
+  Mentor    INT NOT NULL,
+  menuItem  VARCHAR(30) NOT NULL,
+  startDate DATE,
+  endDate   DATE,
+  CONSTRAINT Mentorships_pk PRIMARY KEY (EID, Mentor, menuItem),
+  CONSTRAINT Mentorships_fk1 FOREIGN KEY (EID) REFERENCES SousChef (EID),
+  CONSTRAINT Mentorships_fk2 FOREIGN KEY (Mentor) REFERENCES SousChef (EID),
+  CONSTRAINT Mentorships_fk3 FOREIGN KEY (menuItem) REFERENCES MenuItem (itemName)
+);
+
+--table for employee shifts
+CREATE TABLE Shift (
+  ShiftDate   DATE NOT NULL,
+  EID         INT NOT NULL,
+  WorkerType  VARCHAR(50),
+  ShiftTime   TIME,
+  CONSTRAINT Shift_pk PRIMARY KEY (ShiftDate, EID),
+  CONSTRAINT Shift_fk FOREIGN KEY (EID) REFERENCES Employee (EID)
 );
