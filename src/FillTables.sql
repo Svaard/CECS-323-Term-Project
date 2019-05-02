@@ -62,6 +62,74 @@ INSERT INTO Employee (EID, name, jobTitle, DOB, shift) VALUES
 (046, 'Stacy Piagno' , 'Waitstaff', 1986-04-27, 'PM');
 
 
+--data for Head Chef
+INSERT INTO HeadChef (EID, recipes) VALUES
+(001, ),
+(002, );
+--data for Sous Chef
+INSERT INTO SousChef (EID, menuItems) VALUES
+(003, NULL),
+(004, NULL),
+(005, NULL),
+(006, NULL);
+
+--data for Line Cooks
+INSERT INTO LineCook (EID, department) VALUES
+(007, ),
+(008, ),
+(009, ),
+(010, ),
+(011, ),
+(012, ),
+(013, ),
+(014, ),
+(015, ),
+(016, );
+
+--data for Dish Washer
+INSERT INTO DishWasher (EID, hourlyRate) VALUES
+(017, 13.00 ),
+(018, 13.00),
+(019, 13.00),
+(020, 13.00),
+(021, 13.00),
+(022, 13.00),
+(023, 13.00),
+(024, 13.00),
+(025, 13.00),
+(026, 13.00);
+
+--data for Managers
+INSERT INTO Manager (EID, salary) VALUES
+(027, 87000.00),
+(028, 87000.00);
+
+--data for Maitre'd
+INSERT INTO Maitre (EID, tables, hourlyRate) VALUES
+(029, ,20.00 ),
+(030, ,20.00),
+(031, ,20.00),
+(032, ,20.00),
+(033, ,20.00),
+(034, ,20.00),
+(035, ,20.00),
+(036, ,20.00);
+
+--data for Wait Staff
+INSERT INTO WaitStaff (EID, hourlyRate) VALUES
+(037, 17.00),
+(038, 17.00),
+(039, 17.00),
+(040, 17.00),
+(041, 17.00),
+(042, 17.00),
+(043, 17.00),
+(044, 17.00),
+(045, 17.00),
+(046, 17.00);
+
+
+
 
 
 
