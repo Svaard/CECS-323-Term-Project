@@ -46,6 +46,21 @@ INSERT INTO Employee (EID, name, jobTitle, DOB, shift) VALUES
 (030, 'James Harden' , 'Maitre', 1989-08-28, 'AM'),
 (031, 'Kawhi Leonard' , 'Maitre', 1990-09-14, 'AM'),
 (032, 'Damian Lillard' , 'Maitre', 1987-07-27, 'AM'),
+(033, 'Nikola Jokic' , 'Maitre', 1988-03-18, 'PM'),
+(034, 'Paul George' , 'Maitre', 1991-10-11, 'PM'),
+(035, 'Russell Westsbrook' , 'Maitre', 1987-07-27, 'PM'),
+(036, 'Sharron Lilly' , 'Maitre', 1957-010-12, 'PM'),
+(037, 'Jaylen Brown' , 'WaitStaff', 1996-12-03, 'AM'),
+(038, 'Demar Derozan' , 'Waitstaff', 1989-06-26, 'AM'),
+(039, 'Leila Wright' , 'Waitstaff', 1988-11-27, 'AM'),
+(040, 'Kyle Lowry' , 'Waitstaff', 1986-01-23, 'AM'),
+(041, 'Pascal Siakam' , 'Waitstaff', 1993-12-15, 'AM'),
+(042, 'Marc Gasol' , 'Waitstaff', 1983-07-11, 'PM'),
+(043, 'Mary Neil' , 'Waitstaff', 1995-03-06, 'PM'),
+(044, 'Sandy Cheeks' , 'Waitstaff', 1993-05-16, 'PM'),
+(045, 'Ezio Salvatore' , 'Waitstaff', 1975-06-21, 'PM'),
+(046, 'Stacy Piagno' , 'Waitstaff', 1986-04-27, 'PM');
+
 
 
 
