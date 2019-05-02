@@ -128,6 +128,13 @@ INSERT INTO WaitStaff (EID, hourlyRate) VALUES
 (045, 17.00),
 (046, 17.00);
 
+--data for Mentorships
+INSERT INTO Mentorships (EID, Mentor, menuItem, startDate, endDate) VALUES
+(003, 'Jared Goff', 'Chicken Chow Mein',  ),
+(004, 'Phillip Rivers', 'Beef Egg Goo Young', ),
+(005, 'Jimmy Garropolo', 'Curry Shrimp',),
+(006, 'Patrick Mahomes', 'Orange Beef', );
+
 
 
 
