@@ -64,8 +64,8 @@ INSERT INTO Employee (EID, name, jobTitle, DOB, shift) VALUES
 
 --data for Head Chef
 INSERT INTO HeadChef (EID, recipes) VALUES
-(001, ),
-(002, );
+(001, 'chicken, celery, cabbages, green onions, noodles ' ),
+(002, 'beef, broccoli, pepper' );
 --data for Sous Chef
 INSERT INTO SousChef (EID, menuItems) VALUES
 (003, NULL),
