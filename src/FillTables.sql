@@ -1,17 +1,63 @@
 --data for customers
 INSERT INTO Customer (CID, CName, Email) VALUES
-  (002, 'Bill Fairbanks', 'b.fairbanks@sis.gov.uk'),
-  (003, 'Jason Walters', 'j.walters@sis.gov.uk'),
-  (004, 'Aidan Flemmings', 'a.flemmings@sis.gov.uk'),
-  (005, 'Stuart Thomas', 's.thomas@sis.gov.uk'),
-  (006, 'Alec Trevelyan', 'a.trevelyan@janus.org')
-  (007, 'James Bond', 'j.bond@sis.gov.uk');
+(001, 'Jeniffer Aneston', 'j.aneston@sis.gov.uk'),
+(002, 'Bill Fairbanks', 'b.fairbanks@sis.gov.uk'),
+(003, 'Jason Walters', 'j.walters@sis.gov.uk'),
+(004, 'Aidan Flemmings', 'a.flemmings@sis.gov.uk'),
+(005, 'Stuart Thomas', 's.thomas@sis.gov.uk'),
+(006, 'Alec Trevelyan', 'a.trevelyan@janus.org'),
+(007, 'James Bond', 'j.bond@sis.gov.uk'),
+(008, 'Briana Gonzalez', 'briana1997@gmail.com'),
+(009, 'Harry Potter', 'harry_potter@hotmail.com'),
+(010, 'Seam Smith', 'sean.smith@yahoo.com'),
+(011, 'Ariana Grande', 'a.grande94@ymail.com'),
+(012, 'Sally Johnson', 'sjohnson@gmail.com');
+  
 
---data for Hall of Hall Of Fame
+--data for address
+INSERT INTO Address (CID, AddressID, AddressType, Street, City, State, ZipCode) VALUES
+('001', 'ABC1', 'home', '1456 Balmain Ave', 'Artesia', 'CA', '90702'),              
+('002', 'DEF2', 'home', '87601 Bae Blvd', 'San Francisco', 'CA', '96795'),        
+('003', 'GHI3', 'home', '7834 Siska St', 'Pi Pakka', 'CA', '98977'),            
+('004', 'JKL4', 'home', '3487 Crystal Ave', 'Long Beach', 'CA', '90732'),   
+('005', 'MNO5', 'home', '9979 Ceasar St', 'North gate', 'NV', '79093'),          
+('006', 'PQR6', 'home', '7838 Junipero St', 'Bas Karo', 'CA', '98500'),             
+('007', 'STU7', 'home', '2132 Bite Ave', 'San Fraya', 'CA', '98809'),         
+('008', 'VWX8', 'work', '8771 Blossom Blvd', 'San Juan', 'CA', '97000'),        
+('009', 'YZA9', 'work', '4055 Waviver St', 'Long Beach', 'CA', '90722'),           
+('010', 'ACA10', 'work', '9567 Pioneer Blvd', 'Biggie Park', 'CA', '93451'),          
+('011', 'ACB11', 'work', '3432 Compton St', 'Poolia', 'CA', '90561'),                
+('012', 'ACC12', 'work', '3234 Matita Ave', 'Jensen', 'CA', '92541'); 
+   
+--data for phone
+INSERT INTO Phone (CID, PhoneType, PhoneNum) VALUES
+('001', 'cell', '5625677890'), 
+('002', 'cell', '8189780003'), 
+('003', 'cell', '5623450087'), 
+('004', 'cell', '8180000002'), 
+('005', 'cell', '8009090909'), 
+('006', 'cell', '8187676500'), 
+('007', 'cell', '5627459980'), 
+('008', 'work', '8184342223'), 
+('009', 'work', '6789990123'), 
+('010', 'work', '8004684592'), 
+('011', 'work', '3234534500'), 
+('012', 'work', '6261223001');
+    
+--data for Hall Of Fame
 INSERT INTO HallOfFame (CID, InductionDate, itemName, photograph) VALUES
-  (007, '1995-11-17', 'Chicken Chow Mein', 1),
-  (006, '1997-08-25', 'Beef Egg Goo Young', 0);
+(007, '1995-11-17', 'Chicken Chow Mein', 1),
+(006, '1997-08-25', 'Beef Egg Goo Young', 0),
+(010, '1994-02-28', 'Beijing Beef', 2);
 
+--data for Corporate
+INSERT INTO Corporate (CID, AddressID, Organisation, PhoneNum) VALUES
+('008', 'VWX8', 'org1', '8184342223'),        
+('009', 'YZA9', 'org2', '6789990123'),           
+('010', 'ACA10', 'org3', '8004684592'),          
+('011', 'ACB11', 'org4', '3234534500'),                
+('012', 'ACC12', 'org', '6261223001'); 
+ 
 --data for employees
 INSERT INTO Employee (EID, name, jobTitle, DOB, shift) VALUES
 (001, 'Aarron Rodgers', 'HeadChef', 1988-03-12, 'AM'),
@@ -136,158 +182,7 @@ INSERT INTO Mentorships (EID, Mentor, menuItem, startDate, endDate) VALUES
 (006, 'Patrick Mahomes', 'Orange Beef', );
 
 
---data for MenuItem
-INSERT INTO MenuItem (itemName) VALUES
---Lunch Specials(
---Chicken
-('Curry Chicken'),
-('Chicken w. Brocoli'),
-('Chicken w. Vegetable'),
-('Chicken Bean Sprout'),
-('Cashew Nut Chicken'),
-('Almond Chicken'),
-('Chicken w. Garlic Sauce'),
-('Sweet and Sour Chicken'),
-('Kung Pao Chicken'),
-('Orange Chicken'),
-('Szechwan Chicken'),
---Pork
-('Sweet and Sour Pork'),
---Beef
-('Beef w. Broccoli'),
-('Beef w. Satay Sauce'),
-('Beef w. Black Pepper Sauce'),
-('Green Pepper Steak'),
-('Beef w. Ginger and Green Onion'),
-('Mongolian Beef'),
-('Kung Pao Beef'),
-('Beef w. Garlic Sauce'),
-('Beef w. Mixed Vegetables'),
-('Beef Bean Sprout Chop Suey'),
-('Curry Beef'),
-('Szechwan Beef'),
---Seafood
-('Shrimp w. Broccoli'),
-('Shrimp w. Mixed Vegetable'),
-('Shrimp Bean Sprout Chop Suey'),
-('Cashew Shrimp'),
-('Kung Pao Shrimp'),
-('Shrimp w. Garlic Sauce'),
-('Sweet and Sour Shrimp'),
-('Szechwan Shrimp'),
---Vegetables
-('Szechwan Tofu'),
-('Stir Fried Broccoli'),
-('Stir Fried Vegetable'),
-('Stir Fried Green Bean'),
-('Kung Pao Tofu'),
-('Salt and Pepper Tofu'),
-('Orange Tofu'),
---)
---Appetizers
-('Salted Pepper Calamari'),
-('Cream Cheese Wonton(8)'),
-('Chicken Egg Roll(4)'),
-('Vegetable Egg Roll(4)'),
-('Fried Wonton(10)'),
-('Fried Shrimp(6)'),
-('Dumpling (Potsitckers)(10)'),
-('Steamed Dumplings(10)'),
-('Fried Chicken Wings(8)'),
-('B.B.Q Pork'),
-('Moo Shu Pork/Chicken/Beef'),
-('Moo Shu Shrimp'),
---Soup
-('Egg Flower Soup'),
-('Hot and Sour Soup'),
-('Wor Wonton Soup'),
-('Wonton Soup'),
-('Sizzling Rice Soup w. Three Delight'),
-('Seafood Soup'),
-('Chicken and Corn Soup'),
-('Vegetable Soup'),
-('Chicken Vegetable Soup'),
-('Shrimp Vegetable Soup'),
---Chef Special(
-('Peking Pork Chop'),
-('Asparagus Beef'),
-('Asparagus Chicken'),
-('Asparagus Pork'),
-('Asparagus Shrimp'),
-('Walnut Shrimp'),
-('Pheonix Chicken'),
-('Snow Pease Beef'),
-('Salt and Pepper Shrimp'),
-('Sauteed Three Delight'),
-('Sweet and Pungent Shrimp'),
-('General Tsao Chicken'),
-('Orange Beef'),
-('Phoenix Beef'),
---)
--- More Pork
-('Salt and Pepper Pork Chop'),
-('Pork w. Mixed Vegetables'),
-('Curry Pork'),
-('BBQ Pork w. Mixed Vegetables'),
---More Chicken
-('Green Bean Chicken'),
-('Chicken Broccoli'), 
-('Chicken w. Mixed Vegetable'),
-('Green Pepper Chicken'),
-('Curry Chicken'),
-('Sesame Chicken'),
-('Teriyaki Chicken'),
-('Moo Goo Gai Pan'),
---More Beef
-('Green Bean Beef'),
-('Beef w. Mushroom'),
---More Seafood
-('Curry Shrimp'),
-('Shrimp w. Lobster Sauce'),
-('Broccoli w. Fish Filet'),
-('Fish Fillet w. Sweet and Sour Sauce'),
-('Fish Fillet Slice w. Black Bean Sauce'),
-('Sauteed Stir Fried Fish Fillet'),
-('Sausteed Shrimp'),
---More Vegetables
-('Mushroom w. Broccoli'),
-('Chinese Broccoli w. Oyster Sauce'),
---Chow Mein
-('Shrimp Chow Mein'),
-('Chicken Chow Mein'),
-('Beef Chow Mein'),
-('BBQ Pork Chow Mein'),
-('House Special Chow Mein'),
-('Vegetable Chow Mein'),
-('Shrimp Rice Noodle'),
-('BBQ Pork Rice Noodle'),
-('Chicken Rice Noodle'),
-('House Special Rice Noodle'),
-('Shrimp Chow Fun'),
-('Seafood Chow Fun'),
-('House Special Chow Fun'),
-('Chicken Chow Fun'),
-('Beef Chow FUn'),
-('Shrimp Crispy Pan Fried Noodle'),
-('Seafood Crispy Pan Fried Noodle'),
-('House Special Crispy Pan Fried Noodle'),
-('Chicken Crispy Pan Fried Noodle'),
-('BBQ Pork Crispy Fried Noodle'),
-('Beef Crispy Pan Fried Noodle'),
---Egg Foo Young
-('Shrimp Egg Foo Young'),
-('House Special Egg Foo Young'),
-('Chicken Egg Foo Young'),
-('BBQ Pork Egg Foo Young'),
-('Beef Egg Foo Young'),
-('Vegetable Egg Foo Young'),
---Chop Suey 
-('Chicken Chop Suey'),
-('Beef Chop Suey'),
-('Pork Chop Suey'),
-('BBQ Chop Suey'),
-('Shrimp Chop Suey'),
-('Vegetables Chop Suey');
+
 
 
 
