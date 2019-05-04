@@ -114,23 +114,23 @@ INSERT INTO HeadChef (EID, recipes) VALUES
   (002, 'beef, broccoli, pepper');
 --data for Sous Chef
 INSERT INTO SousChef (EID, menuItems) VALUES
-  (003, NULL),
-  (004, NULL),
-  (005, NULL),
-  (006, NULL);
+  (003, 'Beef w. Broccoli'),
+  (004, 'Stir Fried Vegetable'),
+  (005, 'Szechuan Tofu'),
+  (006, 'Pheonix Chicken');
 
 --data for Line Cooks
 INSERT INTO LineCook (EID, department) VALUES
-  (007, ),
-  (008, ),
-  (009, ),
-  (010, ),
-  (011, ),
-  (012, ),
-  (013, ),
-  (014, ),
-  (015, ),
-  (016, );
+  (007, 'roast chef'),
+  (008, 'grill chef'),
+  (009, 'pastry chef'),
+  (010, 'pantry chef'),
+  (011, 'saute chef'),
+  (012, 'vegetable chef'),
+  (013, 'fry cook'),
+  (014, 'butcher'),
+  (015, 'grill chef'),
+  (016, 'fry cook');
 
 --data for Dish Washer
 INSERT INTO DishWasher (EID, hourlyRate) VALUES
@@ -152,14 +152,16 @@ INSERT INTO Manager (EID, salary) VALUES
 
 --data for Maitre'd
 INSERT INTO Maitre (EID, tables, hourlyRate) VALUES
-  (029, ,20.00 ),
-  (030, ,20.00),
-  (031, ,20.00),
-  (032, ,20.00),
-  (033, ,20.00),
-  (034, ,20.00),
-  (035, ,20.00),
-  (036, ,20.00);
+  --AM
+  (029, '1, 2, 3, 4' ,20.00 ),
+  (030, '5, 6, 7, 8',20.00),
+  (031, '9, 10, 11, 12' ,20.00),
+  (032, '13, 14, 15' ,20.00),
+  --PM
+  (033, '1, 2, 3, 4', ,20.00),
+  (034, '5, 6, 7, 8' ,20.00),
+  (035,'9, 10, 11, 12' ,20.00),
+  (036, '13, 14, 15' ,20.00);
 
 --data for Wait Staff
 INSERT INTO WaitStaff (EID, hourlyRate) VALUES
@@ -176,10 +178,10 @@ INSERT INTO WaitStaff (EID, hourlyRate) VALUES
 
 --data for Mentorships
 INSERT INTO Mentorships (EID, Mentor, menuItem, startDate, endDate) VALUES
-  (003, 'Jared Goff', 'Chicken Chow Mein',  ),
-  (004, 'Phillip Rivers', 'Beef Egg Goo Young', ),
-  (005, 'Jimmy Garropolo', 'Curry Shrimp',),
-  (006, 'Patrick Mahomes', 'Orange Beef', );
+  (003, 'Jared Goff', 'Chicken Chow Mein', 2019-01-21, 2019-05-25),
+  (004, 'Phillip Rivers', 'Beef Egg Goo Young', 2019-02-13, 2019-03-13),
+  (005, 'Jimmy Garropolo', 'Curry Shrimp', 2019-01-05, 2019-01-27),
+  (006, 'Patrick Mahomes', 'Orange Beef', 2019-03-07, 2019-04-28);
 
 INSERT INTO MenuItem (itemName) VALUES
   --Chicken
@@ -308,7 +310,7 @@ INSERT INTO MenuItem (itemName) VALUES
   ('Seafood Chow Fun'),
   ('House Special Chow Fun'),
   ('Chicken Chow Fun'),
-  ('Beef Chow FUn'),
+  ('Beef Chow Fun'),
   ('Shrimp Crispy Pan Fried Noodle'),
   ('Seafood Crispy Pan Fried Noodle'),
   ('House Special Crispy Pan Fried Noodle'),
