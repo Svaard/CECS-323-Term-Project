@@ -205,13 +205,13 @@ CREATE TABLE Chef (
 CREATE TABLE Department (
 
   --TODO Fill in enum values
-  department ENUM(),
+  department ENUM('butcher', 'fry cook', 'grill chef', 'pantry chef', 'pastry chef', 'roast chef', 'saute chef', 'vegetable chef'),
   CONSTRAINT Department_pk PRIMARY KEY (department)
 );
 
 --table for Line Cooks
 CREATE TABLE LineCook (
-  department  VARCHAR(30) NOT NULL,
+  department  VARCHAR(20) NOT NULL,
   EID         INT NOT NULL,
   CONSTRAINT LineCook_pk PRIMARY KEY (department, EID),
   CONSTRAINT LineCook_fk FOREIGN KEY (EID) REFERENCES Chef (EID)
