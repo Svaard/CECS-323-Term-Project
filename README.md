@@ -1,4 +1,4 @@
-# Term Project <img src="https://img.shields.io/github/last-commit/Svaard/CECS323-DatabaseProject.svg?style=flat-square" />
+# Term Project  <img src="https://img.shields.io/github/last-commit/Svaard/CECS323-DatabaseProject/master.svg?style=flat-square" />
 The .xml files from the models folder can be imported in draw.io to view the class diagram and relationship scheme of the database.
 
 
