@@ -1,33 +1,33 @@
---DROP TABLE HallOfFame;
---DROP TABLE Customer;
---DROP TABLE Addresses;
---DROP TABLE Phone;
---DROP TABLE Corporate;
---DROP TABLE Payments;
---DROP TABLE PaymentType;
---DROP TABLE Orders;
---DROP TABLE OrderType;
---DROP TABLE OrderItem;
---DROP TABLE MenuItem;
---DROP TABLE MenuPricing;
---DROP TABLE MenuLookupTable;
---DROP TABLE Spiciness;
---DROP TABLE SpiceValueLookupTable;
---DROP TABLE Categories;
---DROP TABLE CategoryLookupTable;
---DROP TABLE Employee;
---DROP TABLE Chef;
---DROP TABLE Department;
---DROP TABLE LineCook;
---DROP TABLE HeadChef;
---DROP TABLE DishWasher;
---DROP TABLE Manager;
---DROP TABLE Maitre;
---DROP TABLE Tables;
---DROP TABLE SousChef;
---DROP TABLE WaitStaff;
---DROP TABLE Mentorships;
---DROP TABLE Shift;
+-- DROP TABLE HallOfFame;
+-- DROP TABLE Corporate;
+-- DROP TABLE Addresses;
+-- DROP TABLE Phone;
+-- DROP TABLE Payments;
+-- DROP TABLE Customer;
+-- DROP TABLE PaymentType;
+-- DROP TABLE OrderItem;
+-- DROP TABLE Orders;
+-- DROP TABLE OrderType;
+-- DROP TABLE MenuPricing;
+-- DROP TABLE MenuLookupTable;
+-- DROP TABLE Spiciness;
+-- DROP TABLE SpiceValueLookupTable;
+-- DROP TABLE Categories;
+-- DROP TABLE CategoryLookupTable;
+-- DROP TABLE Mentorships;
+-- DROP TABLE MenuItem;
+-- DROP TABLE Department;
+-- DROP TABLE LineCook;
+-- DROP TABLE HeadChef;
+-- DROP TABLE DishWasher;
+-- DROP TABLE Manager;
+-- DROP TABLE Maitre;
+-- DROP TABLE Tables;
+-- DROP TABLE SousChef;
+-- DROP TABLE WaitStaff;
+-- DROP TABLE Chef;
+-- DROP TABLE Shift;
+-- DROP TABLE Employee;
 
 --table for Customers
 CREATE TABLE Customer (
@@ -57,7 +57,7 @@ CREATE TABLE HallOfFame (
 --table for Addresses
 CREATE TABLE Addresses (
   CID         INT NOT NULL,
-  AddressID   INT NOT NULL,
+  AddressID   VARCHAR(10) NOT NULL,
   AddressType VARCHAR(20),
   Street      VARCHAR(50),
   City        VARCHAR(50),
@@ -72,7 +72,7 @@ CREATE TABLE Addresses (
 CREATE TABLE Phone (
   CID       INT NOT NULL,
   PhoneType VARCHAR(20) NOT NULL,
-  PhoneNum  INT NOT NULL,
+  PhoneNum  VARCHAR(20) NOT NULL,
   CONSTRAINT Phone_pk PRIMARY KEY (CID, PhoneType, PhoneNum),
   CONSTRAINT Phone_fk FOREIGN KEY (CID) REFERENCES Customer (CID),
   CONSTRAINT Phone_ck UNIQUE (PhoneNum)
@@ -80,10 +80,10 @@ CREATE TABLE Phone (
 
 --table for Corporate
 CREATE TABLE Corporate (
-  AddressID     INT NOT NULL,
+  AddressID     VARCHAR(10) NOT NULL,
   CID           INT NOT NULL,
   Organization  VARCHAR(70) NOT NULL,
-  PhoneNum      INT NOT NULL,
+  PhoneNum      VARCHAR(20) NOT NULL,
   CONSTRAINT Corporate_pk PRIMARY KEY (AddressID, CID, Organization, PhoneNum),
   CONSTRAINT Corporate_fk1 FOREIGN KEY (AddressID) REFERENCES Addresses (AddressID),
   CONSTRAINT Corporate_fk2 FOREIGN KEY (CID) REFERENCES Customer (CID),
@@ -170,7 +170,7 @@ CREATE TABLE Spiciness (
 --table for looking up food Categories
 CREATE TABLE CategoryLookupTable (
   category VARCHAR(20) NOT NULL CHECK (category IN('Appetizer', 'Soup', 'Meat Entrees', 'Chow Mein', 'Egg Foo Young', 'Chop Suey')),
-  CONSTRAINT CategoryLookupTable_pk PRIMARY KEY (category),
+  CONSTRAINT CategoryLookupTable_pk PRIMARY KEY (category)
 );
 
 --table for food Categories
