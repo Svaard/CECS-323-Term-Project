@@ -185,7 +185,7 @@ CREATE TABLE Categories (
 --table for restaurant Employees
 CREATE TABLE Employee (
   EID       INT NOT NULL,
-  name      VARCHAR(50),
+  eName      VARCHAR(50),
   jobTitle  VARCHAR(50),
   DOB       DATE,
   shift     VARCHAR(10),
