@@ -15,7 +15,7 @@ INSERT INTO Customer (CID, CName, Email) VALUES
 
 
 --data for address
-INSERT INTO Address (CID, AddressID, AddressType, Street, City, State, ZipCode) VALUES
+INSERT INTO Address (CID, AddressID, AddressType, Street, City, cState, ZipCode) VALUES
 ('001', 'ABC1', 'home', '1456 Balmain Ave', 'Artesia', 'CA', '90702'),
 ('002', 'DEF2', 'home', '87601 Bae Blvd', 'San Francisco', 'CA', '96795'),
 ('003', 'GHI3', 'home', '7834 Siska St', 'Pi Pakka', 'CA', '98977'),
