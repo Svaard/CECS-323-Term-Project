@@ -468,8 +468,8 @@ INSERT INTO HeadChef (EID, recipes) VALUES
 
 --data for Sous Chef
 INSERT INTO SousChef (EID, menuItems) VALUES
-  (003, 'Beef w. Broccoli'),
-  (004, 'Stir Fried Vegetable'),
+  (003, 'Beef w. Broccoli, Beef w. Satay Sauce, Beef w. Black Pepper Sauce, Beef w. Garlic Sauce'),
+  (004, 'Stir Fried Vegetable, '),
   (005, 'Szechuan Tofu'),
   (006, 'Pheonix Chicken');
 
@@ -532,7 +532,5 @@ INSERT INTO WaitStaff (EID, hourlyRate) VALUES
 
 --data for Mentorships
 INSERT INTO Mentorships (EID, Mentor, menuItem, startDate, endDate) VALUES
-  (003, 'Jared Goff', 'Chicken Chow Mein', '2019-01-21', '2019-05-25'),
-  (004, 'Phillip Rivers', 'Beef Egg Goo Young', '2019-02-13', '2019-03-13'),
-  (005, 'Jimmy Garropolo', 'Curry Shrimp', '2019-01-05', '2019-01-27'),
-  (006, 'Patrick Mahomes', 'Orange Beef', '2019-03-07', '2019-04-28');
+  (005, 003, 'Curry Shrimp', '2019-01-05', '2019-01-27'),
+  (006, 004, 'Orange Beef', '2019-03-07', '2019-04-28');
