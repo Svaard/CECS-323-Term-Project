@@ -468,8 +468,8 @@ INSERT INTO HeadChef (EID, recipes) VALUES
 
 --data for Sous Chef
 INSERT INTO SousChef (EID, menuItems) VALUES
-  (003, 'Beef w. Broccoli'),
-  (004, 'Stir Fried Vegetable'),
+  (003, 'Beef w. Broccoli, Beef w. Satay Sauce, Beef w. Black Pepper Sauce, Beef w. Garlic Sauce'),
+  (004, 'Stir Fried Vegetable, '),
   (005, 'Szechuan Tofu'),
   (006, 'Pheonix Chicken');
 
