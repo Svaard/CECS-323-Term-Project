@@ -1,44 +1,33 @@
---DROP TABLE HallOfFame
---DROP TABLE Customer
---DROP TABLE Addresses
---DROP TABLE Phone
---DROP TABLE Corporate
---DROP TABLE Payments
---DROP TABLE PaymentType
---DROP TABLE Order
---DROP TABLE OrderType
---DROP TABLE OrderItem
---DROP TABLE MenuItem
---DROP TABLE MenuPricing
---DROP TABLE MenuLookupTable
---DROP TABLE Spiciness
---DROP TABLE SpiceValueLookupTable
---DROP TABLE Categories
---DROP TABLE CategoryLookupTable
---DROP TABLE Employee
---DROP TABLE Chef
---DROP TABLE Department
---DROP TABLE LineCook
---DROP TABLE HeadChef
---DROP TABLE DishWasher
---DROP TABLE Manager
---DROP TABLE Maitre
---DROP TABLE Tables
---DROP TABLE SousChef
---DROP TABLE WaitStaff
---DROP TABLE Mentorships
---DROP TABLE Shift
-
---table for Hall of Fame
-CREATE TABLE HallOfFame (
-  CID           INT NOT NULL,
-  InductionDate DATE NOT NULL,
-  itemName      VARCHAR(30) NOT NULL,
-  photograph    BIT,
-  CONSTRAINT HallOfFame_pk  PRIMARY KEY (CID, InductionDate, itemName),
-  CONSTRAINT HallOfFame_fk1 FOREIGN KEY (CID) REFERENCES Customer (CID),
-  CONSTRAINT HallOfFame_fk2 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName)
-);
+--DROP TABLE HallOfFame;
+--DROP TABLE Customer;
+--DROP TABLE Addresses;
+--DROP TABLE Phone;
+--DROP TABLE Corporate;
+--DROP TABLE Payments;
+--DROP TABLE PaymentType;
+--DROP TABLE Orders;
+--DROP TABLE OrderType;
+--DROP TABLE OrderItem;
+--DROP TABLE MenuItem;
+--DROP TABLE MenuPricing;
+--DROP TABLE MenuLookupTable;
+--DROP TABLE Spiciness;
+--DROP TABLE SpiceValueLookupTable;
+--DROP TABLE Categories;
+--DROP TABLE CategoryLookupTable;
+--DROP TABLE Employee;
+--DROP TABLE Chef;
+--DROP TABLE Department;
+--DROP TABLE LineCook;
+--DROP TABLE HeadChef;
+--DROP TABLE DishWasher;
+--DROP TABLE Manager;
+--DROP TABLE Maitre;
+--DROP TABLE Tables;
+--DROP TABLE SousChef;
+--DROP TABLE WaitStaff;
+--DROP TABLE Mentorships;
+--DROP TABLE Shift;
 
 --table for Customers
 CREATE TABLE Customer (
@@ -48,6 +37,23 @@ CREATE TABLE Customer (
   CONSTRAINT Customers_pk PRIMARY KEY (CID)
 );
 
+--table for Menu Items
+CREATE TABLE MenuItem (
+  itemName VARCHAR(30) NOT NULL,
+  CONSTRAINT MenuItem_pk PRIMARY KEY (itemName)
+);
+
+--table for Hall of Fame
+CREATE TABLE HallOfFame (
+  CID           INT NOT NULL,
+  InductionDate DATE NOT NULL,
+  itemName      VARCHAR(30) NOT NULL,
+  photograph    INT CHECK (photograph BETWEEN 0 AND 1),
+  CONSTRAINT HallOfFame_pk  PRIMARY KEY (CID, InductionDate, itemName),
+  CONSTRAINT HallOfFame_fk1 FOREIGN KEY (CID) REFERENCES Customer (CID),
+  CONSTRAINT HallOfFame_fk2 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName)
+);
+
 --table for Addresses
 CREATE TABLE Addresses (
   CID         INT NOT NULL,
@@ -55,10 +61,11 @@ CREATE TABLE Addresses (
   AddressType VARCHAR(20),
   Street      VARCHAR(50),
   City        VARCHAR(50),
-  State       VARCHAR(30),
+  cState      VARCHAR(30),
   ZipCode     INT,
   CONSTRAINT Addresses_pk PRIMARY KEY (CID, AddressID),
-  CONSTRAINT Addresses_fk FOREIGN KEY (CID) REFERENCES Customer (CID)
+  CONSTRAINT Addresses_fk FOREIGN KEY (CID) REFERENCES Customer (CID),
+  CONSTRAINT Addresses_ck UNIQUE (AddressID)
 );
 
 --table for Phone Numbers
@@ -67,7 +74,8 @@ CREATE TABLE Phone (
   PhoneType VARCHAR(20) NOT NULL,
   PhoneNum  INT NOT NULL,
   CONSTRAINT Phone_pk PRIMARY KEY (CID, PhoneType, PhoneNum),
-  CONSTRAINT Phone_fk FOREIGN KEY (CID) REFERENCES Customer (CID)
+  CONSTRAINT Phone_fk FOREIGN KEY (CID) REFERENCES Customer (CID),
+  CONSTRAINT Phone_ck UNIQUE (PhoneNum)
 );
 
 --table for Corporate
@@ -82,17 +90,20 @@ CREATE TABLE Corporate (
   CONSTRAINT Corporate_fk3 FOREIGN KEY (PhoneNum) REFERENCES Phone (PhoneNum)
 );
 
---table for Payments
-CREATE TABLE Payments (
+--table for Order Types
+CREATE TABLE OrderType (
+  OrderType VARCHAR(50) NOT NULL,
+  CONSTRAINT OrderType_pk PRIMARY KEY (OrderType)
+);
+
+--table for Orders
+CREATE TABLE Orders (
   OrderNumber INT NOT NULL,
-  PaymentType VARCHAR(20) NOT NULL,
-  CID         INT NOT NULL,
-  AmountPaid  FLOAT,
-  Gratuity    FLOAT,
-  CONSTRAINT Payments_pk PRIMARY KEY (OrderNumber, PaymentType, CID),
-  CONSTRAINT Payments_fk1 FOREIGN KEY (OrderNumber) REFERENCES Order (OrderNumber),
-  CONSTRAINT Payments_fk2 FOREIGN KEY (PaymentType) REFERENCES PaymentType (PaymentType),
-  CONSTRAINT Payments_fk3 FOREIGN KEY (CID) REFERENCES Customer(CID)
+  OrderType   VARCHAR(50) NOT NULL,
+  OrderDate   DATE,
+  CONSTRAINT Orders_pk PRIMARY KEY (OrderNumber, OrderType),
+  CONSTRAINT Orders_fk FOREIGN KEY (OrderType) REFERENCES OrderType (OrderType),
+  CONSTRAINT Orders_ck UNIQUE (OrderNumber)
 );
 
 --table for Payment PhoneType
@@ -101,19 +112,17 @@ CREATE TABLE PaymentType (
   CONSTRAINT PaymentType_pk PRIMARY KEY (PaymentType)
 );
 
---table for Orders
-CREATE TABLE Order (
+--table for Payments
+CREATE TABLE Payments (
   OrderNumber INT NOT NULL,
-  OrderType   VARCHAR(50) NOT NULL,
-  OrderDate   DATE,
-  CONSTRAINT Order_pk PRIMARY KEY (OrderNumber, OrderType),
-  CONSTRAINT Order_fk FOREIGN KEY (OrderType) REFERENCES OrderType (OrderType)
-);
-
---table for Order Types
-CREATE TABLE OrderType (
-  OrderType VARCHAR(50) NOT NULL,
-  CONSTRAINT OrderType_pk PRIMARY KEY (OrderType)
+  PaymentType VARCHAR(20) NOT NULL,
+  CID         INT NOT NULL,
+  AmountPaid  FLOAT,
+  Gratuity    FLOAT,
+  CONSTRAINT Payments_pk PRIMARY KEY (OrderNumber, PaymentType, CID),
+  CONSTRAINT Payments_fk1 FOREIGN KEY (OrderNumber) REFERENCES Orders (OrderNumber),
+  CONSTRAINT Payments_fk2 FOREIGN KEY (PaymentType) REFERENCES PaymentType (PaymentType),
+  CONSTRAINT Payments_fk3 FOREIGN KEY (CID) REFERENCES Customer(CID)
 );
 
 --table for Order Items
@@ -122,31 +131,31 @@ CREATE TABLE OrderItem (
   itemName    VARCHAR(30) NOT NULL,
   Quantity    INT,
   CONSTRAINT OrderItem_pk PRIMARY KEY (OrderNumber, itemName),
-  CONSTRAINT OrderItem_fk1 FOREIGN KEY (OrderNumber) REFERENCES Order (OrderNumber),
+  CONSTRAINT OrderItem_fk1 FOREIGN KEY (OrderNumber) REFERENCES Orders (OrderNumber),
   CONSTRAINT OrderItem_fk2 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName)
 );
 
---table for Menu Items
-CREATE TABLE MenuItem (
-  itemName VARCHAR(30) NOT NULL,
-  CONSTRAINT MenuItem_pk PRIMARY KEY (itemName)
+--table for looking up Menus
+CREATE TABLE MenuLookupTable (
+  menu VARCHAR(20) NOT NULL CHECK (menu IN('Evening', 'Lunch', 'Children''s', 'Sunday Brunch Buffet')),
+  CONSTRAINT MenuLookupTable_pk PRIMARY KEY (menu)
 );
 
 --table for Different Menu Types
 CREATE TABLE MenuPricing (
-  menu      VARCHAR (20) NOT NULL,
-  itemName  VARCHAR(30) NOTNULL,
+  menu      VARCHAR(20) NOT NULL,
+  itemName  VARCHAR(30) NOT NULL,
   Price     FLOAT,
-  Size      INT,
+  itemSize  INT,
   CONSTRAINT MenuPricing_pk PRIMARY KEY (menu, itemName),
   CONSTRAINT MenuPricing_fk1 FOREIGN KEY (menu) REFERENCES MenuLookupTable (menu),
   CONSTRAINT MenuPricing_fk2 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName)
 );
 
---table for looking up Menus
-CREATE TABLE MenuLookupTable (
-  menu ENUM('Evening', 'Lunch', 'Children''s', 'Sunday Brunch Buffet') NOT NULL,
-  CONSTRAINT MenuLookupTable_pk PRIMARY KEY (menu)
+--table for looking up Spice Values
+CREATE Table SpiceValueLookupTable (
+  spiceValue VARCHAR(10) NOT NULL CHECK (spiceValue IN('Mild', 'Tangy', 'Piquant', 'Hot', 'OH MY GOD')),
+  CONSTRAINT SpiceValueLookupTable_pk PRIMARY KEY (spiceValue)
 );
 
 --table for Spiciness Values
@@ -158,25 +167,19 @@ CREATE TABLE Spiciness (
   CONSTRAINT Spiciness_fk2 FOREIGN KEY (spiceValue) REFERENCES SpiceValueLookupTable (spiceValue)
 );
 
---table for looking up Spice Values
-CREATE Table SpiceValueLookupTable (
-  spiceValue ENUM('Mild', 'Tangy', 'Piquant', 'Hot', 'OH MY GOD'),
-  CONSTRAINT SpiceValueLookupTable_pk PRIMARY KEY (spiceValue)
+--table for looking up food Categories
+CREATE TABLE CategoryLookupTable (
+  category VARCHAR(20) NOT NULL CHECK (category IN('Appetizer', 'Soup', 'Meat Entrees', 'Chow Mein', 'Egg Foo Young', 'Chop Suey')),
+  CONSTRAINT CategoryLookupTable_pk PRIMARY KEY (category),
 );
 
 --table for food Categories
 CREATE TABLE Categories (
   itemName VARCHAR(30) NOT NULL,
-  category VARCHAR(30) NOT NULL,
+  category VARCHAR(20) NOT NULL,
   CONSTRAINT Categories_pk PRIMARY KEY (itemName, category),
   CONSTRAINT Categories_fk1 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName),
   CONSTRAINT Categories_fk2 FOREIGN KEY (category) REFERENCES CategoryLookupTable (category)
-);
-
---table for looking up food Categories
-CREATE TABLE CategoryLookupTable (
-  category ENUM('Appetizer', 'Soup', 'Meat Entrees', 'Chow Mein', 'Egg Foo Young', 'Chop Suey'),
-  CONSTRAINT CategoryLookupTable_pk PRIMARY KEY (category)
 );
 
 --table for restaurant Employees
@@ -198,14 +201,13 @@ CREATE TABLE Chef (
   salary          FLOAT NOT NULL,
   EID             INT NOT NULL,
   CONSTRAINT Chef_pk PRIMARY KEY (salary, EID),
-  CONSTRAINT Chef_fk FOREIGN KEY (EID) REFERENCES Employee (EID)
+  CONSTRAINT Chef_fk FOREIGN KEY (EID) REFERENCES Employee (EID),
+  CONSTRAINT Chef_ck UNIQUE (EID)
 );
 
 --lookup table for Departments
 CREATE TABLE Department (
-
-  --TODO Fill in enum values
-  department ENUM('butcher', 'fry cook', 'grill chef', 'pantry chef', 'pastry chef', 'roast chef', 'saute chef', 'vegetable chef'),
+  department VARCHAR(20) NOT NULL CHECK (department IN('butcher', 'fry cook', 'grill chef', 'pantry chef', 'pastry chef', 'roast chef', 'saute chef', 'vegetable chef')),
   CONSTRAINT Department_pk PRIMARY KEY (department)
 );
 
@@ -241,6 +243,12 @@ CREATE TABLE Manager (
   CONSTRAINT Manager_fk FOREIGN KEY (EID) REFERENCES Employee (EID)
 );
 
+--lookup table for Tables
+CREATE TABLE Tables (
+  tables INT NOT NULL CHECK (tables IN(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)),
+  CONSTRAINT Tables_pk PRIMARY KEY (tables)
+);
+
 --table for Maitre'd
 CREATE TABLE Maitre (
   EID         INT NOT NULL,
@@ -251,18 +259,12 @@ CREATE TABLE Maitre (
   CONSTRAINT Maitre_fk2 FOREIGN KEY (tables) REFERENCES Tables (tables)
 );
 
---lookup table for Tables
-CREATE TABLE Tables (
-  tables ENUM('1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'),
-  CONSTRAINT Tables_pk PRIMARY KEY (tables)
-);
-
 --table for Sous Chefs
 CREATE TABLE SousChef (
   EID       INT NOT NULL,
   menuItems VARCHAR(255),
   CONSTRAINT SousChef_pk PRIMARY KEY (EID),
-  CONSTRAINT SousChef_fk FOREIGN KEY (EID)
+  CONSTRAINT SousChef_fk FOREIGN KEY (EID) REFERENCES Chef (EID)
 );
 
 --table for the Wait Staff
