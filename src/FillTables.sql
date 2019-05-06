@@ -441,6 +441,26 @@ INSERT INTO Employee (EID, eName, jobTitle, DOB, shift) VALUES
   (044, 'Sandy Cheeks' , 'Waitstaff', '1993-05-16', 'PM'),
   (045, 'Ezio Salvatore' , 'Waitstaff', '1975-06-21', 'PM'),
   (046, 'Stacy Piagno' , 'Waitstaff', '1986-04-27', 'PM');
+  
+ --data for Chef
+ INSERT INTO Chef (jobDescription, experience, rating, shift, salary, EID) VALUES
+ ('professional cook who is paid to make food for a restaurant', 8, 9, AM, 100000.00, 001),
+ ('professional cook who is paid to make food for a restaurant', 8, 8, PM, 100000.00, 002),
+ ('second in command to the head chef', 5, 6, AM, 60000.00, 003),
+ ('second in command to the head chef', 6, 7, AM, 60000.00, 004),
+ ('second in command to the head chef', 4, 4, PM, 60000.00, 005),
+ ('second in command to the head chef', 3, 4, PM, 60000.00, 006),
+ ('cook that is assigned to a particular section of the kitchen', 2, 3, AM, 40000.00, 007),
+ ('cook that is assigned to a particular section of the kitchen', 3, 1, AM, 40000.00, 008),
+ ('cook that is assigned to a particular section of the kitchen', 2, 2, AM, 40000.00, 009),
+ ('cook that is assigned to a particular section of the kitchen', 4, 4, AM, 40000.00, 010),
+ ('cook that is assigned to a particular section of the kitchen', 2, 2, AM, 40000.00, 011),
+ ('cook that is assigned to a particular section of the kitchen', 1, 1, PM, 40000.00, 012),
+ ('cook that is assigned to a particular section of the kitchen', 5, 1, PM, 40000.00, 013),
+ ('cook that is assigned to a particular section of the kitchen', 1, 7, PM, 40000.00, 014),
+ ('cook that is assigned to a particular section of the kitchen', 5, 2, PM, 40000.00, 015),
+ ('cook that is assigned to a particular section of the kitchen', 1, 3, PM, 40000.00, 016),
+ ('cook that is assigned to a particular section of the kitchen', 5, 3, PM, 40000.00, 017);
 
 
 --data for Head Chef
