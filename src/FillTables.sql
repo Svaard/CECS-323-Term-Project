@@ -93,7 +93,6 @@ INSERT INTO MenuItem (itemName) VALUES
   ('Chicken Broccoli'),
   ('Chicken w. Mixed Vegetable'),
   ('Green Pepper Chicken'),
-  ('Curry Chicken'),
   ('Sesame Chicken'),
   ('Teriyaki Chicken'),
   ('Moo Goo Gai Pan'),
@@ -104,13 +103,8 @@ INSERT INTO MenuItem (itemName) VALUES
   ('Curry Shrimp'),
   ('Shrimp w. Lobster Sauce'),
   ('Broccoli w. Fish Filet'),
-  ('Fish Fillet w. Sweet and Sour Sauce'),
-  ('Fish Fillet Slice w. Black Bean Sauce'),
   ('Sauteed Stir Fried Fish Fillet'),
   ('Sausteed Shrimp'),
-  --More Vegetables
-  ('Mushroom w. Broccoli'),
-  ('Chinese Broccoli w. Oyster Sauce'),
   --Chow Mein
   ('Shrimp Chow Mein'),
   ('Chicken Chow Mein'),
@@ -127,10 +121,6 @@ INSERT INTO MenuItem (itemName) VALUES
   ('House Special Chow Fun'),
   ('Chicken Chow Fun'),
   ('Beef Chow Fun'),
-  ('Shrimp Crispy Pan Fried Noodle'),
-  ('Seafood Crispy Pan Fried Noodle'),
-  ('House Special Crispy Pan Fried Noodle'),
-  ('Chicken Crispy Pan Fried Noodle'),
   ('BBQ Pork Crispy Fried Noodle'),
   ('Beef Crispy Pan Fried Noodle'),
   --Egg Foo Young
@@ -191,7 +181,6 @@ INSERT INTO Spiciness (itemName, spiceValue) VALUES
   ('Salt and Pepper Pork Chop', 'Tangy'),
   ('Curry Pork', 'OH MY GOD'),
   ('Curry Shrimp', 'Piquant'),
-  ('Fish Fillet w. Sweet and Sour Sauce', 'Mild'),
   ('BBQ Pork Crispy Fried Noodle', 'Mild'),
   ('Kung Pao Chicken', 'Mild'),
   ('Kung Pao Beef', 'Mild'),
@@ -285,8 +274,6 @@ INSERT INTO Categories (itemName, category) VALUES
   ('Curry Shrimp', 'Meat Entrees'),
   ('Shrimp w. Lobster Sauce', 'Meat Entrees'),
   ('Broccoli w. Fish Filet', 'Meat Entrees'),
-  ('Fish Fillet w. Sweet and Sour Sauce', 'Meat Entrees'),
-  ('Fish Fillet Slice w. Black Bean Sauce', 'Meat Entrees'),
   ('Sauteed Stir Fried Fish Fillet', 'Meat Entrees'),
   ('Sausteed Shrimp', 'Meat Entrees'),
   ('Shrimp Chow Mein', 'Chow Mein'),
@@ -304,10 +291,6 @@ INSERT INTO Categories (itemName, category) VALUES
   ('House Special Chow Fun', 'Chow Mein'),
   ('Chicken Chow Fun', 'Chow Mein'),
   ('Beef Chow Fun', 'Chow Mein'),
-  ('Shrimp Crispy Pan Fried Noodle', 'Chow Mein'),
-  ('Seafood Crispy Pan Fried Noodle', 'Chow Mein'),
-  ('House Special Crispy Pan Fried Noodle', 'Chow Mein'),
-  ('Chicken Crispy Pan Fried Noodle', 'Chow Mein'),
   ('BBQ Pork Crispy Fried Noodle', 'Chow Mein'),
   ('Beef Crispy Pan Fried Noodle', 'Chow Mein'),
   ('Shrimp Egg Foo Young', 'Egg Foo Young'),
@@ -325,7 +308,6 @@ INSERT INTO Categories (itemName, category) VALUES
 
 --Data for menu Types
 INSERT INTO MenuPricing (menu, itemName, Price, itemSize) VALUES
-  ('Evening', 'Fish Fillet w. Sweet and Sour Sauce', 14.50, 3),
   ('Evening', 'Chicken w. Brocoli', 13.00, 3),
   ('Lunch', 'Chicken w. Brocoli', 10.50, 2),
   ('Children''s', 'Chicken w. Brocoli', 8.00, 1),
