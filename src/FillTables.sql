@@ -503,6 +503,13 @@ INSERT INTO Manager (EID, salary) VALUES
   (027, 87000.00),
   (028, 87000.00);
 
+--data for Tables
+INSERT INTO Tables (tables) VALUES
+  ('1, 2, 3, 4'),
+  ('5, 6, 7, 8'),
+  ('9, 10, 11, 12'),
+  ('13, 14, 15');
+
 --data for Maitre'd
 INSERT INTO Maitre (EID, tables, hourlyRate) VALUES
   --AM
