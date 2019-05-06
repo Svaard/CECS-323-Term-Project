@@ -381,9 +381,9 @@ INSERT INTO Phone (CID, PhoneType, PhoneNum) VALUES
 
 --data for Hall Of Fame
 INSERT INTO HallOfFame (CID, InductionDate, itemName, photograph) VALUES
-  (007, '1995-11-17', 'Chicken Chow Mein', 1),
-  (006, '1997-08-25', 'Beef Egg Goo Young', 0),
-  (010, '1994-02-28', 'Beijing Beef', 1);
+  (007, '1995-11-17', 'Curry Beef', 1),
+  (006, '1997-08-25', 'Hot and Sour Soup', 0),
+  (010, '1994-02-28', 'Curry Pork', 1);
 
 --data for Corporate
 INSERT INTO Corporate (CID, AddressID, Organization, PhoneNum) VALUES
