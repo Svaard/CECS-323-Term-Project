@@ -265,7 +265,6 @@ INSERT INTO Categories (itemName, category) VALUES
   ('Chicken Broccoli', 'Meat Entrees'),
   ('Chicken w. Mixed Vegetable', 'Meat Entrees'),
   ('Green Pepper Chicken', 'Meat Entrees'),
-  ('Curry Chicken', 'Meat Entrees'),
   ('Sesame Chicken', 'Meat Entrees'),
   ('Teriyaki Chicken', 'Meat Entrees'),
   ('Moo Goo Gai Pan', 'Meat Entrees'),
