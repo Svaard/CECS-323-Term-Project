@@ -459,8 +459,8 @@ INSERT INTO Employee (EID, eName, jobTitle, DOB, shift) VALUES
  ('cook that is assigned to a particular section of the kitchen', 5, 1, PM, 40000.00, 013),
  ('cook that is assigned to a particular section of the kitchen', 1, 7, PM, 40000.00, 014),
  ('cook that is assigned to a particular section of the kitchen', 5, 2, PM, 40000.00, 015),
- ('cook that is assigned to a particular section of the kitchen', 1, 3, PM, 40000.00, 016),
- ('cook that is assigned to a particular section of the kitchen', 5, 3, PM, 40000.00, 017);
+ ('cook that is assigned to a particular section of the kitchen', 1, 3, PM, 40000.00, 016);
+ 
 
 
 --data for Head Chef
