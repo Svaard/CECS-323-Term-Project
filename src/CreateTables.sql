@@ -245,14 +245,14 @@ CREATE TABLE Manager (
 
 --lookup table for Tables
 CREATE TABLE Tables (
-  tables INT NOT NULL CHECK (tables IN(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15)),
+  tables VARCHAR(20) NOT NULL CHECK (tables IN('1, 2, 3, 4', '5, 6, 7, 8', '9, 10, 11, 12', '13, 14, 15')),
   CONSTRAINT Tables_pk PRIMARY KEY (tables)
 );
 
 --table for Maitre'd
 CREATE TABLE Maitre (
   EID         INT NOT NULL,
-  tables      INT NOT NULL,
+  tables      VARCHAR(20) NOT NULL,
   hourlyRate  FLOAT,
   CONSTRAINT Maitre_pk PRIMARY KEY (EID, tables),
   CONSTRAINT Maitre_fk1 FOREIGN KEY (EID) REFERENCES Employee (EID),
