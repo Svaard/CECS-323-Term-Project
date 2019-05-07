@@ -35,17 +35,17 @@ CREATE TABLE Customer (
   CName VARCHAR(50),
   Email VARCHAR(50),
   spice VARCHAR(10),
-  cash FLOAT,
+  cash  FLOAT,
   CONSTRAINT Customers_pk PRIMARY KEY (CID)
 );
 
 --table for Menu Items
 CREATE TABLE MenuItem (
-  itemName VARCHAR(100) NOT NULL,
-  spiceValue VARCHAR(10) NOT NULL,
-  menu VARCHAR(20) NOT NULL,
-  price INT,
-  itemSize INT,
+  itemName    VARCHAR(100) NOT NULL,
+  spiceValue  VARCHAR(10) NOT NULL,
+  menu        VARCHAR(20) NOT NULL,
+  price       FLOAT,
+  itemSize    INT,
   CONSTRAINT MenuItem_pk PRIMARY KEY (itemName, spiceValue, menu, itemSize),
   CONSTRAINT MenuItem_fk FOREIGN KEY (spiceValue) REFERENCES SpiceValueLookupTable (spiceValue),
   CONSTRAINT MenuItem_fk FOREIGN KEY (menu) REFERENCES MenuLookupTable (menu)
@@ -137,10 +137,13 @@ CREATE TABLE Payments (
 CREATE TABLE OrderItem (
   OrderNumber INT NOT NULL,
   itemName    VARCHAR(30) NOT NULL,
+  spiceValue  VARCHAR(10) NOT NULL,
+  menu        VARCHAR(20) NOT NULL,
   Quantity    INT,
-  CONSTRAINT OrderItem_pk PRIMARY KEY (OrderNumber, itemName),
+  price       FLOAT,
+  CONSTRAINT OrderItem_pk PRIMARY KEY (OrderNumber, itemName, spiceValue, menu),
   CONSTRAINT OrderItem_fk1 FOREIGN KEY (OrderNumber) REFERENCES Orders (OrderNumber),
-  CONSTRAINT OrderItem_fk2 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName)
+  CONSTRAINT OrderItem_fk2 FOREIGN KEY (itemName, spiceValue, menu) REFERENCES MenuItem (itemName, spiceValue, menu)
 );
 
 --table for looking up Menus
@@ -173,7 +176,7 @@ CREATE TABLE Categories (
 --table for restaurant Employees
 CREATE TABLE Employee (
   EID       INT NOT NULL,
-  eName      VARCHAR(50),
+  eName     VARCHAR(50),
   jobTitle  VARCHAR(50),
   DOB       DATE,
   shift     VARCHAR(10),
