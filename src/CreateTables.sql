@@ -64,8 +64,7 @@ CREATE TABLE MenuItem (
   itemSize    INT,
   CONSTRAINT MenuItem_pk PRIMARY KEY (itemName, spiceValue, menu, itemSize),
   CONSTRAINT MenuItem_fk1 FOREIGN KEY (spiceValue) REFERENCES SpiceValueLookupTable (spiceValue),
-  CONSTRAINT MenuItem_fk2 FOREIGN KEY (menu) REFERENCES MenuLookupTable (menu),
-  CONSTRAINT MenuItem_ck1 UNIQUE (itemName)
+  CONSTRAINT MenuItem_fk2 FOREIGN KEY (menu) REFERENCES MenuLookupTable (menu)
 );
 
 --table for Hall of Fame
@@ -87,7 +86,7 @@ CREATE TABLE Addresses (
   Street      VARCHAR(50),
   City        VARCHAR(50),
   cState      VARCHAR(30),
-  ZipCode     INT,
+  ZipCode     VARCHAR(20),
   CONSTRAINT Addresses_pk PRIMARY KEY (CID, AddressID),
   CONSTRAINT Addresses_fk FOREIGN KEY (CID) REFERENCES Customer (CID),
   CONSTRAINT Addresses_ck UNIQUE (AddressID)
