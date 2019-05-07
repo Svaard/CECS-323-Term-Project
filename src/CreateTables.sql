@@ -109,6 +109,7 @@ CREATE TABLE Orders (
   OrderNumber INT NOT NULL,
   OrderType   VARCHAR(50) NOT NULL,
   OrderDate   DATE,
+  OrderTotal  FLOAT,
   CONSTRAINT Orders_pk PRIMARY KEY (OrderNumber, OrderType),
   CONSTRAINT Orders_fk FOREIGN KEY (OrderType) REFERENCES OrderType (OrderType),
   CONSTRAINT Orders_ck UNIQUE (OrderNumber)
