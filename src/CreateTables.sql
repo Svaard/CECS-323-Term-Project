@@ -34,7 +34,7 @@ CREATE TABLE Customer (
   CID   INT NOT NULL,
   CName VARCHAR(50),
   Email VARCHAR(50),
-  spice VARCHAR(10),
+  MaxSpiceLevel VARCHAR(10),
   cash  FLOAT,
   CONSTRAINT Customers_pk PRIMARY KEY (CID)
 );
