@@ -29,6 +29,24 @@
 -- DROP TABLE Shift;
 -- DROP TABLE Employee;
 
+--table for looking up Spice Values
+CREATE Table SpiceValueLookupTable (
+  spiceValue VARCHAR(10) NOT NULL CHECK (spiceValue IN('Mild', 'Tangy', 'Piquant', 'Hot', 'OH MY GOD')),
+  CONSTRAINT SpiceValueLookupTable_pk PRIMARY KEY (spiceValue)
+);
+
+--table for looking up food Categories
+CREATE TABLE CategoryLookupTable (
+  category VARCHAR(20) NOT NULL CHECK (category IN('Appetizer', 'Soup', 'Meat Entrees', 'Chow Mein', 'Egg Foo Young', 'Chop Suey')),
+  CONSTRAINT CategoryLookupTable_pk PRIMARY KEY (category)
+);
+
+--table for looking up Menus
+CREATE TABLE MenuLookupTable (
+  menu VARCHAR(20) NOT NULL CHECK (menu IN('Evening', 'Lunch', 'Children''s', 'Sunday Brunch Buffet')),
+  CONSTRAINT MenuLookupTable_pk PRIMARY KEY (menu)
+);
+
 --table for Customers
 CREATE TABLE Customer (
   CID   INT NOT NULL,
@@ -47,15 +65,16 @@ CREATE TABLE MenuItem (
   price       FLOAT,
   itemSize    INT,
   CONSTRAINT MenuItem_pk PRIMARY KEY (itemName, spiceValue, menu, itemSize),
-  CONSTRAINT MenuItem_fk FOREIGN KEY (spiceValue) REFERENCES SpiceValueLookupTable (spiceValue),
-  CONSTRAINT MenuItem_fk FOREIGN KEY (menu) REFERENCES MenuLookupTable (menu)
+  CONSTRAINT MenuItem_fk1 FOREIGN KEY (spiceValue) REFERENCES SpiceValueLookupTable (spiceValue),
+  CONSTRAINT MenuItem_fk2 FOREIGN KEY (menu) REFERENCES MenuLookupTable (menu),
+  CONSTRAINT MenuItem_ck1 UNIQUE (itemName)
 );
 
 --table for Hall of Fame
 CREATE TABLE HallOfFame (
   CID           INT NOT NULL,
   InductionDate DATE NOT NULL,
-  itemName      VARCHAR(30) NOT NULL,
+  itemName      VARCHAR(100) NOT NULL,
   photograph    INT CHECK (photograph BETWEEN 0 AND 1),
   CONSTRAINT HallOfFame_pk  PRIMARY KEY (CID, InductionDate, itemName),
   CONSTRAINT HallOfFame_fk1 FOREIGN KEY (CID) REFERENCES Customer (CID),
@@ -137,37 +156,21 @@ CREATE TABLE Payments (
 --table for Order Items
 CREATE TABLE OrderItem (
   OrderNumber INT NOT NULL,
-  itemName    VARCHAR(30) NOT NULL,
+  itemName    VARCHAR(100) NOT NULL,
   spiceValue  VARCHAR(10) NOT NULL,
   menu        VARCHAR(20) NOT NULL,
   Quantity    INT,
   price       FLOAT,
   CONSTRAINT OrderItem_pk PRIMARY KEY (OrderNumber, itemName, spiceValue, menu),
   CONSTRAINT OrderItem_fk1 FOREIGN KEY (OrderNumber) REFERENCES Orders (OrderNumber),
-  CONSTRAINT OrderItem_fk2 FOREIGN KEY (itemName, spiceValue, menu) REFERENCES MenuItem (itemName, spiceValue, menu)
-);
-
---table for looking up Menus
-CREATE TABLE MenuLookupTable (
-  menu VARCHAR(20) NOT NULL CHECK (menu IN('Evening', 'Lunch', 'Children''s', 'Sunday Brunch Buffet')),
-  CONSTRAINT MenuLookupTable_pk PRIMARY KEY (menu)
-);
-
---table for looking up Spice Values
-CREATE Table SpiceValueLookupTable (
-  spiceValue VARCHAR(10) NOT NULL CHECK (spiceValue IN('Mild', 'Tangy', 'Piquant', 'Hot', 'OH MY GOD')),
-  CONSTRAINT SpiceValueLookupTable_pk PRIMARY KEY (spiceValue)
-);
-
---table for looking up food Categories
-CREATE TABLE CategoryLookupTable (
-  category VARCHAR(20) NOT NULL CHECK (category IN('Appetizer', 'Soup', 'Meat Entrees', 'Chow Mein', 'Egg Foo Young', 'Chop Suey')),
-  CONSTRAINT CategoryLookupTable_pk PRIMARY KEY (category)
+  CONSTRAINT OrderItem_fk2 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName),
+  CONSTRAINT OrderItem_fk3 FOREIGN KEY (spiceValue) REFERENCES MenuItem (spiceValue),
+  CONSTRAINT OrderItem_fk4 FOREIGN KEY (menu) REFERENCES MenuItem (menu)
 );
 
 --table for food Categories
 CREATE TABLE Categories (
-  itemName VARCHAR(30) NOT NULL,
+  itemName VARCHAR(100) NOT NULL,
   category VARCHAR(20) NOT NULL,
   CONSTRAINT Categories_pk PRIMARY KEY (itemName, category),
   CONSTRAINT Categories_fk1 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName),
@@ -271,13 +274,13 @@ CREATE TABLE WaitStaff (
 CREATE TABLE Mentorships (
   EID       INT NOT NULL,
   Mentor    INT NOT NULL,
-  menuItem  VARCHAR(30) NOT NULL,
+  itemName  VARCHAR(100) NOT NULL,
   startDate DATE,
   endDate   DATE,
-  CONSTRAINT Mentorships_pk PRIMARY KEY (EID, Mentor, menuItem),
+  CONSTRAINT Mentorships_pk PRIMARY KEY (EID, Mentor, itemName),
   CONSTRAINT Mentorships_fk1 FOREIGN KEY (EID) REFERENCES SousChef (EID),
-  CONSTRAINT Mentorships_fk2 FOREIGN KEY (Mentor) REFERENCES SousChef (EID),
-  CONSTRAINT Mentorships_fk3 FOREIGN KEY (menuItem) REFERENCES MenuItem (itemName)
+  --CONSTRAINT Mentorships_fk2 FOREIGN KEY (Mentor) REFERENCES SousChef (EID),
+  CONSTRAINT Mentorships_fk3 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName)
 );
 
 --table for employee shifts
