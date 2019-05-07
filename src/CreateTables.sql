@@ -34,13 +34,20 @@ CREATE TABLE Customer (
   CID   INT NOT NULL,
   CName VARCHAR(50),
   Email VARCHAR(50),
+  cash  FLOAT,
   CONSTRAINT Customers_pk PRIMARY KEY (CID)
 );
 
 --table for Menu Items
 CREATE TABLE MenuItem (
-  itemName VARCHAR(30) NOT NULL,
-  CONSTRAINT MenuItem_pk PRIMARY KEY (itemName)
+  itemName VARCHAR(100) NOT NULL,
+  spiceValue VARCHAR(10) NOT NULL,
+  menu VARCHAR(20) NOT NULL,
+  price INT,
+  itemSize INT,
+  CONSTRAINT MenuItem_pk PRIMARY KEY (itemName, spiceValue, menu, itemSize),
+  CONSTRAINT MenuItem_fk FOREIGN KEY (spiceValue) REFERENCES SpiceValueLookupTable (spiceValue),
+  CONSTRAINT MenuItem_fk FOREIGN KEY (menu) REFERENCES MenuLookupTable (menu)
 );
 
 --table for Hall of Fame
@@ -141,30 +148,10 @@ CREATE TABLE MenuLookupTable (
   CONSTRAINT MenuLookupTable_pk PRIMARY KEY (menu)
 );
 
---table for Different Menu Types
-CREATE TABLE MenuPricing (
-  menu      VARCHAR(20) NOT NULL,
-  itemName  VARCHAR(30) NOT NULL,
-  Price     FLOAT,
-  itemSize  INT,
-  CONSTRAINT MenuPricing_pk PRIMARY KEY (menu, itemName),
-  CONSTRAINT MenuPricing_fk1 FOREIGN KEY (menu) REFERENCES MenuLookupTable (menu),
-  CONSTRAINT MenuPricing_fk2 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName)
-);
-
 --table for looking up Spice Values
 CREATE Table SpiceValueLookupTable (
   spiceValue VARCHAR(10) NOT NULL CHECK (spiceValue IN('Mild', 'Tangy', 'Piquant', 'Hot', 'OH MY GOD')),
   CONSTRAINT SpiceValueLookupTable_pk PRIMARY KEY (spiceValue)
-);
-
---table for Spiciness Values
-CREATE TABLE Spiciness (
-  itemName    VARCHAR(30) NOT NULL,
-  spiceValue  VARCHAR(10) NOT NULL,
-  CONSTRAINT Spiciness_pk PRIMARY KEY (itemName, spiceValue),
-  CONSTRAINT Spiciness_fk1 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName),
-  CONSTRAINT Spiciness_fk2 FOREIGN KEY (spiceValue) REFERENCES SpiceValueLookupTable (spiceValue)
 );
 
 --table for looking up food Categories
