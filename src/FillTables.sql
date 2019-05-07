@@ -178,7 +178,7 @@ INSERT INTO Customer (CID,CName,Email,MaxSpiceLevel) VALUES (961,"Hayes Aguilar"
 INSERT INTO Customer (CID,CName,Email,MaxSpiceLevel) VALUES (971,"Aileen Maxwell","ante.lectus.convallis@feugiatnecdiam.co.uk","Mild"),(972,"Haley Rowe","commodo.auctor@ultrices.com","Tangy"),(973,"Pandora Barber","Donec.fringilla@suscipit.co.uk","Tangy"),(974,"Kenyon Perkins","Donec.elementum@Utsemper.com","Hot"),(975,"Charissa Hall","eu.erat.semper@Nullatinciduntneque.ca","Hot"),(976,"Wyatt Lee","pellentesque@arcuSedeu.org","Piquant"),(977,"Quynn Woods","eget.mollis.lectus@non.ca","Tangy"),(978,"Jeremy Blair","Vivamus.non@Intincidunt.org","Piquant"),(979,"Serena Blanchard","Nam@sollicitudincommodo.net","Mild"),(980,"Ainsley Benton","cursus@at.edu","Tangy");
 INSERT INTO Customer (CID,CName,Email,MaxSpiceLevel) VALUES (981,"Lenore Willis","non.arcu.Vivamus@facilisisnon.net","Hot"),(982,"Abraham Finley","felis.ullamcorper@ultricies.edu","Mild"),(983,"Cadman Reilly","consectetuer.euismod.est@egestas.edu","Mild"),(984,"Kai Mosley","penatibus.et.magnis@enimgravidasit.com","Piquant"),(985,"Malachi Burton","ipsum@nuncac.org","Mild"),(986,"Rajah Becker","amet.nulla@hendreritDonec.edu","Hot"),(987,"Blaine Barnett","Suspendisse.aliquet@malesuadavel.com","Mild"),(988,"Jaquelyn Conway","nibh@Curabiturvellectus.edu","Tangy"),(989,"Whoopi Crawford","a.felis.ullamcorper@bibendumsedest.net","Tangy"),(990,"Odessa Harmon","dolor.nonummy@sapiencursusin.ca","Tangy");
 INSERT INTO Customer (CID,CName,Email,MaxSpiceLevel) VALUES (991,"Carson Hartman","in.lobortis.tellus@justonecante.co.uk","Mild"),(992,"Dorian Gilbert","vitae.sodales.at@anteNunc.co.uk","Piquant"),(993,"Samantha Petty","sodales@Suspendisse.edu","Tangy"),(994,"Kuame Willis","eget@acmieleifend.co.uk","Hot"),(995,"Leilani Dixon","dolor.sit@loremtristiquealiquet.edu","Mild"),(996,"Adele Salazar","nascetur@ultricesmaurisipsum.net","Tangy"),(997,"Nerea Williamson","Phasellus.elit@ornaresagittisfelis.net","Tangy"),(998,"Angela Holder","aliquet.Phasellus@tortordictum.com","Mild"),(999,"Jenna Harmon","arcu.Vivamus@imperdietullamcorper.com","Mild"),(1000,"Jermaine Lynch","Nam.ac.nulla@id.org","Mild");
-
+INSERT INTO Customer (CID,CName,Email,MaxSpiceLevel) VALUES (1001,"Medge Dalton","eget@Nullamsuscipitest.org","OH MY GOD"),(1002,"Charde Little","Pellentesque@sit.edu","OH MY GOD"),(1003,"Piper Chang","consectetuer@facilisis.edu","OH MY GOD"),(1004,"Allegra Glenn","ligula@id.edu","OH MY GOD"),(1005,"Jada Haley","enim.sit.amet@netusetmalesuada.org","OH MY GOD");
   
 
 --data for address
@@ -213,9 +213,11 @@ INSERT INTO Phone (CID, PhoneType, PhoneNum) VALUES
 
 --data for Hall Of Fame
 INSERT INTO HallOfFame (CID, InductionDate, itemName, photograph) VALUES
-  (007, '1995-11-17', 'Curry Beef', 1),
-  (006, '1997-08-25', 'Hot and Sour Soup', 0),
-  (010, '1994-02-28', 'Curry Pork', 1);
+  (1001, '1995-11-17', 'Cashew Shrimp', 1),
+  (1002, '1997-08-25', 'Curry Chicken', 0),
+  (1004, '1997-08-25', 'Shrimp Chop Suey', 1),
+  (1005, '1997-08-25', 'Vegetable Chop Suey', 1),
+  (1003, '1994-02-28', 'Moo Shu Shrimp', 1);
 
 --data for Corporate
 INSERT INTO Corporate (CID, AddressID, Organization, PhoneNum) VALUES
