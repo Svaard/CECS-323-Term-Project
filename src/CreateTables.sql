@@ -31,7 +31,7 @@
 
 --table for looking up Spice Values
 CREATE Table SpiceValueLookupTable (
-  spiceValue VARCHAR(10) NOT NULL CHECK (spiceValue IN('Mild', 'Tangy', 'Piquant', 'Hot', 'OH MY GOD')),
+  spiceValue VARCHAR(10) NOT NULL CHECK (spiceValue IN('mild', 'tangy', 'piquant', 'hot', 'oh my god')),
   CONSTRAINT SpiceValueLookupTable_pk PRIMARY KEY (spiceValue)
 );
 
@@ -43,7 +43,7 @@ CREATE TABLE CategoryLookupTable (
 
 --table for looking up Menus
 CREATE TABLE MenuLookupTable (
-  menu VARCHAR(20) NOT NULL CHECK (menu IN('Evening', 'Lunch', 'Children''s', 'Sunday Brunch Buffet')),
+  menu VARCHAR(20) NOT NULL CHECK (menu IN('evening', 'lunch', 'children', 'Sunday Buffet')),
   CONSTRAINT MenuLookupTable_pk PRIMARY KEY (menu)
 );
 
@@ -51,7 +51,7 @@ CREATE TABLE MenuLookupTable (
 CREATE TABLE Customer (
   CID   INT NOT NULL,
   CName VARCHAR(50),
-  Email VARCHAR(50),
+  Email VARCHAR(70),
   MaxSpiceLevel VARCHAR(10),
   cash  FLOAT,
   CONSTRAINT Customers_pk PRIMARY KEY (CID)
@@ -84,7 +84,7 @@ CREATE TABLE HallOfFame (
 --table for Addresses
 CREATE TABLE Addresses (
   CID         INT NOT NULL,
-  AddressID   VARCHAR(10) NOT NULL,
+  AddressID   INT NOT NULL,
   AddressType VARCHAR(20),
   Street      VARCHAR(50),
   City        VARCHAR(50),
@@ -107,7 +107,7 @@ CREATE TABLE Phone (
 
 --table for Corporate
 CREATE TABLE Corporate (
-  AddressID     VARCHAR(10) NOT NULL,
+  AddressID     INT NOT NULL,
   CID           INT NOT NULL,
   Organization  VARCHAR(70) NOT NULL,
   PhoneNum      VARCHAR(20) NOT NULL,
@@ -279,7 +279,7 @@ CREATE TABLE Mentorships (
   endDate   DATE,
   CONSTRAINT Mentorships_pk PRIMARY KEY (EID, Mentor, itemName),
   CONSTRAINT Mentorships_fk1 FOREIGN KEY (EID) REFERENCES SousChef (EID),
-  --CONSTRAINT Mentorships_fk2 FOREIGN KEY (Mentor) REFERENCES SousChef (EID),
+  CONSTRAINT Mentorships_fk2 FOREIGN KEY (Mentor) REFERENCES SousChef (EID),
   CONSTRAINT Mentorships_fk3 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName)
 );
 
