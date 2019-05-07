@@ -162,31 +162,6 @@ INSERT INTO CategoryLookupTable (category) VALUES
   ('Egg Foo Young'),
   ('Chop Suey');
 
---Data for Spiciness
-INSERT INTO Spiciness (itemName, spiceValue) VALUES
-  ('Curry Chicken', 'Hot'),
-  ('Sweet and Sour Chicken', 'Tangy'),
-  ('Orange Chicken', 'Mild'),
-  ('Szechuan Chicken', 'Mild'),
-  ('Sweet and Sour Pork', 'Mild'),
-  ('Beef w. Black Pepper Sauce', 'Piquant'),
-  ('Green Pepper Steak', 'Tangy'),
-  ('Curry Beef', 'OH MY GOD'),
-  ('Szechuan Beef', 'Mild'),
-  ('Sweet and Sour Shrimp', 'Mild'),
-  ('Salt and Pepper Tofu', 'Tangy'),
-  ('Salted Pepper Calamari', 'Piquant'),
-  ('Hot and Sour Soup', 'OH MY GOD'),
-  ('Orange Beef', 'Mild'),
-  ('Salt and Pepper Pork Chop', 'Tangy'),
-  ('Curry Pork', 'OH MY GOD'),
-  ('Curry Shrimp', 'Piquant'),
-  ('BBQ Pork Crispy Fried Noodle', 'Mild'),
-  ('Kung Pao Chicken', 'Mild'),
-  ('Kung Pao Beef', 'Mild'),
-  ('Kung Pao Shrimp', 'Mild'),
-  ('Kung Pao Tofu', 'Mild');
-
 --Data for Categories
 INSERT INTO Categories (itemName, category) VALUES
   ('Curry Chicken', 'Meat Entrees'),
@@ -304,34 +279,6 @@ INSERT INTO Categories (itemName, category) VALUES
   ('BBQ Chop Suey', 'Chop Suey'),
   ('Shrimp Chop Suey', 'Chop Suey'),
   ('Vegetables Chop Suey', 'Chop Suey');
-
---Data for menu Types
-INSERT INTO MenuPricing (menu, itemName, Price, itemSize) VALUES
-  ('Evening', 'Chicken w. Brocoli', 13.00, 3),
-  ('Lunch', 'Chicken w. Brocoli', 10.50, 2),
-  ('Children''s', 'Chicken w. Brocoli', 8.00, 1),
-  ('Evening', 'Mongolian Beef', 14.00, 3),
-  ('Lunch', 'Mongolian Beef', 12.50, 2),
-  ('Evening', 'House Special Egg Foo Young', 17.00, 3),
-  ('Children''s', 'Shrimp Chow Fun', 7.99, 1),
-  ('Children''s', 'Chicken Chow Fun', 7.99, 1),
-  ('Children''s', 'Beef Chow Fun', 7.99, 1),
-  ('Children''s', 'Seafood Chow Fun', 7.99, 1),
-  ('Evening', 'Sauteed Stir Fried Fish Fillet', 18.00, 4),
-  ('Evening', 'Wonton Soup', 11.00, 3),
-  ('Lunch', 'Wonton Soup', 9.99, 2),
-  ('Evening', 'Almond Chicken', 10.50, 2),
-  ('Lunch', 'Almond Chicken', 0.50, 1),
-  ('Evening', 'Salted Pepper Calamari', 9.00, 2),
-  ('Lunch', 'Salted Pepper Calamari', 7.00, 1),
-  ('Sunday Brunch Buffet', 'Salted Pepper Calamari', 9.00, 2),
-  ('Sunday Brunch Buffet', 'Sauteed Three Delight', 14.00, 3),
-  ('Sunday Brunch Buffet', 'Snow Pease Beef', 15.00, 3),
-  ('Evening', 'General Tsao Chicken', 11.00, 3),
-  ('Lunch', 'General Tsao Chicken', 8.00, 2),
-  ('Evening', 'Chicken Chow Mein', 9.00, 4),
-  ('Lunch', 'Chicken Chow Mein', 6.75, 2),
-  ('Children''s', 'Chicken Chow Mein', 4.00, 1);
 
 --data for customers
 INSERT INTO Customer (CID, CName, Email) VALUES
