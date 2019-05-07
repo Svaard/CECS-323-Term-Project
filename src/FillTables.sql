@@ -299,12 +299,17 @@ INSERT INTO HallOfFame (CID, InductionDate, itemName, photograph) VALUES
   (1003, '1994-02-28', 'Moo Shu Shrimp', 1);
 
 --data for Corporate
-INSERT INTO Corporate (CID, AddressID, Organization, PhoneNum) VALUES
-  (008, 'VWX8', 'org1', '8184342223'),
-  (009, 'YZA9', 'org2', '6789990123'),
-  (010, 'ACA10', 'org3', '8004684592'),
-  (011, 'ACB11', 'org4', '3234534500'),
-  (012, 'ACC12', 'org', '6261223001');
+INSERT INTO Corporate (CID,AddressID,Organization) VALUES (901,9345,"Adipiscing Associates"),(902,9346,"Ipsum Suspendisse Non Industries"),(903,9347,"Varius Nam Ltd"),(904,9348,"Mauris Rhoncus Institute"),(905,9349,"Leo Cras Vehicula Inc."),(906,9350,"Quis Lectus Company"),(907,9351,"Rhoncus Inc."),(908,9352,"Donec Sollicitudin Limited"),(909,9353,"Nulla Integer Limited"),(910,9354,"Malesuada Malesuada Consulting");
+INSERT INTO Corporate (CID,AddressID,Organization) VALUES (911,9355,"Et Netus Et Associates"),(912,9356,"Id Ante LLP"),(913,9357,"Curae; Phasellus Ornare Incorporated"),(914,9358,"Magnis PC"),(915,9359,"Vivamus Company"),(916,9360,"In Faucibus Morbi Ltd"),(917,9361,"Eu PC"),(918,9362,"A Purus Consulting"),(919,9363,"Ridiculus Mus LLP"),(920,9364,"Semper Tellus Id Corp.");
+INSERT INTO Corporate (CID,AddressID,Organization) VALUES (921,9365,"Sit Amet Ante Industries"),(922,9366,"Elementum LLC"),(923,9367,"Nec Malesuada Company"),(924,9368,"Sapien Gravida Ltd"),(925,9369,"Adipiscing Mauris Molestie Associates"),(926,9370,"Adipiscing Foundation"),(927,9371,"Enim PC"),(928,9372,"Morbi Tristique LLC"),(929,9373,"Dictum Phasellus In Company"),(930,9374,"Sem Mollis Dui Industries");
+INSERT INTO Corporate (CID,AddressID,Organization) VALUES (931,9375,"Ante Bibendum Ullamcorper Industries"),(932,9376,"Velit Corp."),(933,9377,"In Nec Orci Corporation"),(934,9378,"Elementum At Institute"),(935,9379,"Magna Lorem Institute"),(936,9380,"Quis Arcu Vel Corporation"),(937,9381,"Parturient Montes Consulting"),(938,9382,"Massa Industries"),(939,9383,"Lacus Ut Foundation"),(940,9384,"Mi Associates");
+INSERT INTO Corporate (CID,AddressID,Organization) VALUES (941,9385,"Enim Nunc Incorporated"),(942,9386,"Quam Ltd"),(943,9387,"Dictum Magna Ut Consulting"),(944,9388,"Neque Corp."),(945,9389,"Ut Odio Vel PC"),(946,9390,"Magna Nam Institute"),(947,9391,"Nunc Inc."),(948,9392,"Natoque Penatibus LLP"),(949,9393,"Ridiculus Mus Proin PC"),(950,9394,"Fermentum Metus Institute");
+INSERT INTO Corporate (CID,AddressID,Organization) VALUES (951,9395,"Vitae Consulting"),(952,9396,"Tincidunt Orci Corporation"),(953,9397,"Posuere Associates"),(954,9398,"Non Massa Associates"),(955,9399,"Phasellus Vitae Mauris Associates"),(956,9400,"Quis Institute"),(957,9401,"Orci LLP"),(958,9402,"Nunc Industries"),(959,9403,"Mauris Erat Eget Incorporated"),(960,9404,"Aliquet Magna A Ltd");
+INSERT INTO Corporate (CID,AddressID,Organization) VALUES (961,9405,"Nec Imperdiet Limited"),(962,9406,"Ligula Aenean Gravida Associates"),(963,9407,"Integer Ltd"),(964,9408,"Eleifend LLC"),(965,9409,"Quisque Varius Nam LLC"),(966,9410,"Aliquet Molestie Tellus Associates"),(967,9411,"Nam Industries"),(968,9412,"Id Nunc Ltd"),(969,9413,"Duis Industries"),(970,9414,"Dui Fusce Incorporated");
+INSERT INTO Corporate (CID,AddressID,Organization) VALUES (971,9415,"Mauris Magna Ltd"),(972,9416,"Pede PC"),(973,9417,"Pede Institute"),(974,9418,"Sem Limited"),(975,9419,"Nulla Company"),(976,9420,"Luctus Ipsum Industries"),(977,9421,"Fermentum Vel Foundation"),(978,9422,"Fermentum Foundation"),(979,9423,"Egestas Aliquam Company"),(980,9424,"Odio Tristique Pharetra LLP");
+INSERT INTO Corporate (CID,AddressID,Organization) VALUES (981,9425,"Litora Torquent Corporation"),(982,9426,"Consectetuer Euismod LLC"),(983,9427,"Nunc In At Institute"),(984,9428,"Ut Company"),(985,9429,"Vitae Diam Company"),(986,9430,"Placerat Eget Corporation"),(987,9431,"Quisque Libero Lacus Incorporated"),(988,9432,"Sem Magna Ltd"),(989,9433,"Phasellus Ornare Fusce Corporation"),(990,9434,"Gravida Industries");
+INSERT INTO Corporate (CID,AddressID,Organization) VALUES (991,9435,"Cras Vulputate Corp."),(992,9436,"Posuere Enim Corporation"),(993,9437,"At Foundation"),(994,9438,"Dolor Corporation"),(995,9439,"Dolor Fusce Corporation"),(996,9440,"Vehicula Aliquet Ltd"),(997,9441,"Accumsan Associates"),(998,9442,"Dignissim Lacus Consulting"),(999,9443,"Gravida Non Sollicitudin Foundation"),(1000,9444,"Sit Amet Faucibus Industries");
+
 
 --data for employees
 INSERT INTO Employee (EID, eName, jobTitle, DOB, shift) VALUES
