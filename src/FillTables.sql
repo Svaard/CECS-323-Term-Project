@@ -67,19 +67,9 @@ INSERT INTO Categories (itemName, category) VALUES
   ('Vegetables Chop Suey', 'Chop Suey');
 
 --data for customers
-INSERT INTO Customer (CID, CName, Email) VALUES
-  (001, 'Jeniffer Aneston', 'j.aneston@sis.gov.uk', 'Piquant', 1.80),
-  (002, 'Bill Fairbanks', 'b.fairbanks@sis.gov.uk', 'Mild', .50),
-  (003, 'Jason Walters', 'j.walters@sis.gov.uk', 'Tangy', 1.12),
-  (004, 'Aidan Flemmings', 'a.flemmings@sis.gov.uk', 'Hot', 5.15),
-  (005, 'Stuart Thomas', 's.thomas@sis.gov.uk', 'Piquant', 4.75),
-  (006, 'Alec Trevelyan', 'a.trevelyan@janus.org', 'OH MY GOD', 6.00),
-  (007, 'James Bond', 'j.bond@sis.gov.uk', 'OH MY GOD', 7.00),
-  (008, 'Briana Gonzalez', 'briana1997@gmail.com', 'Mild', 0),
-  (009, 'Harry Potter', 'harry_potter@hotmail.com', 'Tangy', 1.25),
-  (010, 'Seam Smith', 'sean.smith@yahoo.com', 'OH MY GOD', 10.00),
-  (011, 'Ariana Grande', 'a.grande94@ymail.com', 'Piquant', 2.00),
-  (012, 'Sally Johnson', 'sjohnson@gmail.com', 'Mild', 0);
+INSERT INTO Customer (CID, CName, Email, MaxSpiceLevel) VALUES
+
+  
 
 --data for address
 INSERT INTO Addresses (CID, AddressID, AddressType, Street, City, cState, ZipCode) VALUES
