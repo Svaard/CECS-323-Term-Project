@@ -440,8 +440,8 @@ INSERT INTO WaitStaff (EID, hourlyRate) VALUES
 
 --data for Mentorships
 INSERT INTO Mentorships (EID, Mentor, itemName, startDate, endDate) VALUES
-  (005, 003, 'Curry Shrimp', DATE('2019-01-05'), DATE('2019-01-27')),
-  (006, 004, 'Orange Beef', DATE('2019-03-07'), DATE('2019-04-28'));
+  (005, 003, 'House Special Egg Foo Young', DATE('2019-01-05'), DATE('2019-01-27')),
+  (006, 004, 'Chicken Chop Suey', DATE('2019-03-07'), DATE('2019-04-28'));
 
 INSERT INTO MenuItem (itemName, spiceValue, menu, price, itemSize) VALUES
   ('Salted Pepper Calamari','mild', 'evening', 9.00, 3),
@@ -469,7 +469,7 @@ INSERT INTO MenuItem (itemName, spiceValue, menu, price, itemSize) VALUES
   ('Chicken w. Vegetable','mild', 'children', 8.50, 1),
   ('Beef w. Broccoli','mild', 'lunch', 10.50, 2),
   ('Beef w. Ginger and Green Onion','mild', 'evening', 14.50, 3),
-  ('Mongolian Beef','mild', 'evening', 'evening', 19.00, 3),
+  ('Mongolian Beef','mild', 'evening', 19.00, 3),
   ('Beef w. Mixed Vegetables','mild', 'children', 8.50, 1),
   ('Beef w. Mixed Vegetables','mild', 'evening', 12.50, 3),
   ('Shrimp w. Mixed Vegetable','mild', 'lunch', 11.50, 2),
