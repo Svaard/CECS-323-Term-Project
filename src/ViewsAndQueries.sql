@@ -19,6 +19,13 @@ WHERE OrderDate >= '2017-05-05' GROUP BY CID ORDER BY SUM(AmountPaid) DESC LIMIT
 SELECT EID, eName, COUNT(itemName), GROUP_CONCAT(itemName) from SousChef 
 NATURAL JOIN Employee GROUP BY EID HAVING COUNT(itemName) >= 3; 
 
+--5
+SELECT itemName, count(itemName) from OrderItem where menu = 'children' GROUP BY itemName 
+ORDER BY COUNT(itemName) DESC LIMIT 3;
+
+--6
+
+--7
 
 --8
 SELECT Customer.CID, Customer.CName, Customer.cash FROM Customer
