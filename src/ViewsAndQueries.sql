@@ -83,3 +83,8 @@ LEFT JOIN WaitStaff ON Employee.EID = WaitStaff.EID;
 --⅓ business query
 SELECT Customer.CID, Customer.CName, Customer.MaxSpiceLevel, Customer.Email, HallOfFame.InductionDate, HallOfFame.itemName FROM Customer
 LEFT JOIN HallOfFame ON Customer.CID = HallOfFame.CID;
+                                
+--19
+--business query
+SELECT DISTINCT CID, CName, SUM(gratuity)AS "Gratuity" FROM Payments NATURAL JOIN Customer
+GROUP BY CID ORDER BY SUM(gratuity) DESC LIMIT 5;
