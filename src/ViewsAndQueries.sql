@@ -20,8 +20,8 @@ SELECT EID, eName, COUNT(itemName), GROUP_CONCAT(itemName) from SousChef
 NATURAL JOIN Employee GROUP BY EID HAVING COUNT(itemName) >= 3; 
 
 --5
-SELECT itemName, count(itemName) from OrderItem where menu = 'children' GROUP BY itemName 
-ORDER BY COUNT(itemName) DESC LIMIT 3;
+SELECT E1.eName, E1.EID, E2.eName, E2.EID, E2.itemName from ((SELECT * FROM SousChef Natural Join Employee) E1 Inner Join 
+(SELECT * from SousChef Natural Join Employee) E2 using (EID)) where E1.eName != E2.eName AND E1.itemName = E2.itemName;
 
 --6
 SELECT itemName, count(itemName) from OrderItem where menu = 'children' GROUP BY itemName 
