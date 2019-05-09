@@ -88,3 +88,23 @@ LEFT JOIN HallOfFame ON Customer.CID = HallOfFame.CID;
 --business query
 SELECT DISTINCT CID, CName, SUM(gratuity)AS "Gratuity" FROM Payments NATURAL JOIN Customer
 GROUP BY CID ORDER BY SUM(gratuity) DESC LIMIT 5;
+
+                                
+------------VIEWS----------------------
+
+CREATE VIEW MenuItem_v AS
+SELECT itemName, spiceValue, menu, price  FROM MenuItem;
+
+CREATE VIEW Sous_mentor_v AS
+SELECT eName, Mentor, itemName, startDate FROM Mentorships M NATURAL JOIN Employee E;
+
+CREATE VIEW Customer_Sales_v AS
+SELECT CID, CName, Year(OrderDate), SUM(AmountPaid) AS "Total Spent"
+FROM Payments NATURAL JOIN Orders NATURAL JOIN Customer GROUP BY (CID)
+ORDER BY COUNT(CID) DESC;
+
+CREATE VIEW Customer_Value_v AS
+SELECT CID, CName, Year(OrderDate), SUM(AmountPaid) AS "Total Spent"
+FROM Payments NATURAL JOIN Orders NATURAL JOIN Customer 
+WHERE OrderDate >= DATE_SUB(now(), INTERVAL 1 YEAR) GROUP BY (CID)
+ORDER BY COUNT(CID) DESC;
