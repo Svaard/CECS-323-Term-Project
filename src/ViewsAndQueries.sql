@@ -48,7 +48,12 @@ NATURAL JOIN Orders NATURAL JOIN Customer WHERE OrderDate >= DATE_SUB(now(), INT
 GROUP BY CID ORDER BY SUM(AmountPaid) DESC LIMIT 3;
 
 --12
+SELECT itemName, SUM(Quantity * price) AS "Total Value" FROM OrderItem NATURAL JOIN Orders
+WHERE OrderDate >= DATE_SUB(now(), INTERVAL 1 YEAR)
+GROUP BY itemName ORDER BY (SUM(Quantity * price)) DESC LIMIT 5;
+                                
 --13
+                                
 
 --14
 SELECT itemName, count(itemName) AS "skilled " from SousChef GROUP BY itemName order by count(itemName) ASC;
