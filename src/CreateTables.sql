@@ -291,10 +291,9 @@ CREATE TABLE Mentorships (
 --table for employee shifts
 --shift time is 'HH:MM:SS'
 CREATE TABLE Shift (
-  ShiftDate   DATE NOT NULL,
+  ShiftDays   VARCHAR(255) NOT NULL,
   EID         INT NOT NULL,
-  WorkerType  VARCHAR(50),
-  ShiftTime   TIME,
-  CONSTRAINT Shift_pk PRIMARY KEY (ShiftDate, EID),
+  ShiftTime   VARCHAR(10),
+  CONSTRAINT Shift_pk PRIMARY KEY (ShiftDays, EID),
   CONSTRAINT Shift_fk FOREIGN KEY (EID) REFERENCES Employee (EID)
 );
