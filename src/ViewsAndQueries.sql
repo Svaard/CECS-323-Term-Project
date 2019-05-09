@@ -11,8 +11,8 @@ SELECT OrderNumber, OrderTotal
 FROM Orders;
 
 --3
-SELECT CID, SUM(AmountPaid) from Payments
-NATURAL JOIN Orders 
+SELECT CID, CName, SUM(AmountPaid) from Payments
+NATURAL JOIN Orders NATURAL JOIN Customer
 WHERE OrderDate >= '2017-05-05' GROUP BY CID ORDER BY SUM(AmountPaid) DESC LIMIT 3;
 
 --8
