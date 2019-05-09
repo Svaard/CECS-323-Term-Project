@@ -1,3 +1,11 @@
+--1
+SELECT Customer.CName AS "Name", 'Customer' AS "Type", Customer.Email AS "Contact"
+FROM Customer
+NATURAL JOIN Corporate
+UNION
+SELECT Corporate.Organization AS "Name", 'Corporation' AS "Type", Corporate.PhoneNum AS "Contact"
+FROM Corporate;
+
 --8
 SELECT Customer.CID, Customer.CName, Customer.cash FROM Customer
 ORDER BY cash DESC LIMIT 3;
