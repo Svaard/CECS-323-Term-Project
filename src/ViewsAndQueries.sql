@@ -1,9 +1,9 @@
 --1
-SELECT Customer.CName AS "Name", 'Customer' AS "Type", Customer.Email AS "Contact"
+SELECT Customer.CName AS "Name", 'Customer' AS "Category", Customer.Email AS "Contact"
 FROM Customer
 NATURAL JOIN Corporate
 UNION
-SELECT Corporate.Organization AS "Name", 'Corporation' AS "Type", Corporate.PhoneNum AS "Contact"
+SELECT Corporate.Organization AS "Name", 'Corporation' AS "Category", Corporate.PhoneNum AS "Contact"
 FROM Corporate;
 
 --8
