@@ -38,8 +38,9 @@ SELECT CID, CName, SUM(AmountPaid) AS "Total Spent" from Payments
 NATURAL JOIN Orders NATURAL JOIN Customer GROUP BY CID ORDER BY SUM(AmountPaid) DESC;
 
 --10
-SELECT CID,CName, COUNT(CID) AS "Times Frequented" from Payments NATURAL JOIN Orders NATURAL JOIN Customer 
-GROUP BY CID ORDER BY COUNT(CID) DESC;
+SELECT CID, CName, MONTH(OrderDate), COUNT(CID) AS "Times Frequented"
+FROM Payments NATURAL JOIN Orders NATURAL JOIN Customer GROUP BY (CID)
+ORDER BY COUNT(CID) DESC;
 
 --11
 SELECT CID, CName, SUM(AmountPaid) AS "Amount Spent" from Payments
