@@ -24,6 +24,8 @@ SELECT itemName, count(itemName) from OrderItem where menu = 'children' GROUP BY
 ORDER BY COUNT(itemName) DESC LIMIT 3;
 
 --6
+SELECT itemName, count(itemName) from OrderItem where menu = 'children' GROUP BY itemName 
+ORDER BY COUNT(itemName) DESC LIMIT 3;
 
 --7
 
