@@ -196,15 +196,37 @@ INSERT INTO Addresses (CID,AddressID,AddressType,Street,City,cState,ZipCode) VAL
  (891,9102,'home','357-4059 Semper Ave','Nemoli','Eden','D4 1TA'),(892,9103,'home','P.O. Box 884, 3307 Lacinia Av.','Zonhoven','Callum','27451'),(893,9104,'home','714-4866 Mi Avenue','Montresta','Heather','3436 XX'),(894,9105,'home','Ap #358-9762 Sit Avenue','Coinco','Zane','1441 XX'),(895,9106,'home','266-6945 Blandit Street','Bharatpur','Oscar','33570-512'),(896,9107,'home','Ap #473-891 Egestas Rd.','Clermont-Ferrand','Olivia','4287'),(897,9108,'home','Ap #906-626 Lorem, Rd.','Bruckneudorf','Lunea','38015'),(898,9109,'home','246-7163 Et, Av.','Herk-de-Stad','Rigel','44174'),(899,9110,'home','675 Nam Ave','Dollard-des-Ormeaux','Irene','65588'),(900,9111,'home','761-2784 Vitae St.','Curepto','Florence','16503');
 
 --data for phone
-INSERT INTO Phone (CID,PhoneType,PhoneNum) VALUES (1,'work','1659022854199'),(2,'work','1660061608799'),
-(3,'work','1636082527099'),(4,'work','1627062540199'),(5,'work','1622122395099'),(6,'work','1640030341499'),
-(7,'work','1611041867599'),(8,'work','1605021275499'),(9,'work','1692102401899'),(10,'work','1658041842999');
-INSERT INTO Phone (CID,PhoneType,PhoneNum) VALUES (11,'work','1639051888699'),(12,'work','1600042716199'),(13,'work','1604072079899'),
-(14,'work','1650101175399'),(15,'work','1616011379599'),(16,'work','1652010871699'),(17,'work','1609030513299'),
-(18,'work','1650031401199'),(19,'work','1603122737999'),(20,'work','1632090237299');
-INSERT INTO Phone (CID,PhoneType,PhoneNum) VALUES (21,'work','1648041792999'),(22,'work','1602030377699'),(23,'work','1692102617899'),
-(24,'work','1691111042999'),(25,'work','1626100999499'),(26,'work','1667041328699'),(27,'work','1615080299299'),
-(28,'work','1662121995299'),(29,'work','1651042266899'),(30,'work','1645041554799');
+INSERT INTO Phone (CID,PhoneType,PhoneNum) VALUES 
+(1,'work','1659022854199'),
+(2,'work','1660061608799'),
+(3,'work','1636082527099'),
+(4,'work','1627062540199'),
+(5,'work','1622122395099'),
+(6,'work','1640030341499'),
+(7,'work','1611041867599'),
+(8,'work','1605021275499'),
+(9,'work','1692102401899'),
+(10,'work','1658041842999'),
+(11,'work','1639051888699'),
+(12,'work','1600042716199'),
+(13,'work','1604072079899'),
+(14,'work','1650101175399'),
+(15,'work','1616011379599'),
+(16,'work','1652010871699'),
+(17,'work','1609030513299'),
+(18,'work','1650031401199'),
+(19,'work','1603122737999'),
+(20,'work','1632090237299'),
+(21,'work','1648041792999'),
+(22,'work','1602030377699'),
+(23,'work','1692102617899'),
+(24,'work','1691111042999'),
+(25,'work','1626100999499'),
+(26,'work','1667041328699'),
+(27,'work','1615080299299'),
+(28,'work','1662121995299'),
+(29,'work','1651042266899'),
+(30,'work','1645041554799');
 
 --data for Hall Of Fame
 INSERT INTO HallOfFame (CID, InductionDate, itemName, photograph) VALUES
@@ -215,20 +237,34 @@ INSERT INTO HallOfFame (CID, InductionDate, itemName, photograph) VALUES
   (303, DATE('1994-02-28'), 'Shrimp Egg Foo Young', 1);
 
 --data for Corporate
---INSERT INTO Corporate (CID,AddressID,Organization, PhoneNum)
-INSERT INTO Corporate (CID,AddressID,Corporation) VALUES (1,1234,"Ac Fermentum Corporation", '1659022854199'),
-(2,1235,"Lectus Justo Limited",'1660061608799'),(3,1236,"Malesuada LLP",'1636082527099'),
-(4,1237,"Eu Sem Pellentesque Corp.",'1627062540199'),(5,1238,"Libero Dui Nec Corp.",'1622122395099'),
-(6,1239,"Risus PC",'1640030341499'),(7,1240,"Torquent Per LLC"'1611041867599'),(8,1241,"Bibendum Ullamcorper Incorporated",'1605021275499'),
-(9,1242,"Nunc Industries",'1692102401899'),(10,1243,"Tortor Dictum Eu Associates",'1658041842999');
-INSERT INTO Corporate (CID,AddressID,Corporation) VALUES (11,1244,"Eget Volutpat Ornare Ltd",'1639051888699'),
-(12,1245,"Sodales At LLP",'1600042716199'),(13,1246,"Magna Sed Eu Ltd",'1604072079899'),(14,1247,"Sodales Institute",'1650101175399'),
-(15,1248,"Maecenas Iaculis Corporation",'1616011379599'),(16,1249,"Lobortis Company",'1652010871699'),
-(17,1250,"Magna Tellus Faucibus LLP",'1609030513299'),(18,1251,"Leo LLP",'1650031401199'),(19,1252,"Aliquet Phasellus Company",'1603122737999),
-(20,1253,"Tincidunt Incorporated",'1632090237299');
-INSERT INTO Corporate (CID,AddressID,Corporation) VALUES (21,1254,"Imperdiet Nec Leo Company",'1648041792999'),
-(22,1255,"Tellus Lorem Eu PC",'1602030377699'),(23,1256,"Id Sapien Cras Company",'1692102617899'),
-(24,1257,"Tempor Arcu Foundation",'1691111042999'),(25,1258,"Augue Scelerisque Incorporated",'1626100999499'),
-(26,1259,"Morbi Non Industries",'1667041328699'),(27,1260,"Cum Sociis Corp.",'1615080299299'),
-(28,1261,"Aliquam Enim LLP",'1662121995299'),(29,1262,"Nunc Consulting",'1651042266899'),(30,1263,"Mi Ac Mattis Corporation",'1645041554799');
+INSERT INTO Corporate (CID,AddressID,Organization, PhoneNum) VALUES
+(1,1234,"Ac Fermentum Corporation", '1659022854199'),
+(2,1235,"Lectus Justo Limited",'1660061608799'),
+(3,1236,"Malesuada LLP",'1636082527099'),
+(4,1237,"Eu Sem Pellentesque Corp.",'1627062540199'),
+(5,1238,"Libero Dui Nec Corp.",'1622122395099'),
+(6,1239,"Risus PC",'1640030341499'),
+(7,1240,"Torquent Per LLC"'1611041867599'),
+(8,1241,"Bibendum Ullamcorper Incorporated",'1605021275499'),
+(9,1242,"Nunc Industries",'1692102401899'),
+(10,1243,"Tortor Dictum Eu Associates",'1658041842999'), 
+(11,1244,"Eget Volutpat Ornare Ltd",'1639051888699'),
+(12,1245,"Sodales At LLP",'1600042716199'),
+(13,1246,"Magna Sed Eu Ltd",'1604072079899'),
+(14,1247,"Sodales Institute",'1650101175399'),
+(15,1248,"Maecenas Iaculis Corporation",'1616011379599'),
+(16,1249,"Lobortis Company",'1652010871699'),
+(17,1250,"Magna Tellus Faucibus LLP",'1609030513299'),
+(18,1251,"Leo LLP",'1650031401199'),(19,1252,"Aliquet Phasellus Company",'1603122737999'),
+(20,1253,"Tincidunt Incorporated",'1632090237299'), 
+(21,1254,"Imperdiet Nec Leo Company",'1648041792999'),
+(22,1255,"Tellus Lorem Eu PC",'1602030377699'),
+(23,1256,"Id Sapien Cras Company",'1692102617899'),
+(24,1257,"Tempor Arcu Foundation",'1691111042999'),
+(25,1258,"Augue Scelerisque Incorporated",'1626100999499'),
+(26,1259,"Morbi Non Industries",'1667041328699'),
+(27,1260,"Cum Sociis Corp.",'1615080299299'),
+(28,1261,"Aliquam Enim LLP",'1662121995299'),
+(29,1262,"Nunc Consulting",'1651042266899'),
+(30,1263,"Mi Ac Mattis Corporation",'1645041554799');
 
