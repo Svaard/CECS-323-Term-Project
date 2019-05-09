@@ -1,4 +1,8 @@
---15 OK
+--8
+SELECT Customer.CID, Customer.CName, Customer.cash FROM Customer
+ORDER BY cash DESC LIMIT 3;
+
+--15
 SELECT Customer.CID, Customer.CName FROM Customer
 WHERE CID IN (SELECT CID FROM Corporate);
 
