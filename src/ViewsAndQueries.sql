@@ -33,6 +33,15 @@ ORDER BY COUNT(itemName) DESC LIMIT 3;
 SELECT Customer.CID, Customer.CName, Customer.cash FROM Customer
 ORDER BY cash DESC LIMIT 3;
 
+--9
+SELECT CID, CName, SUM(AmountPaid) AS "Total Spent" from Payments
+NATURAL JOIN Orders NATURAL JOIN Customer GROUP BY CID ORDER BY SUM(AmountPaid) DESC;
+
+--10
+--11
+--12
+--13
+
 --14
 SELECT itemName, count(itemName) AS "skilled " from SousChef GROUP BY itemName order by count(itemName) ASC;
 
