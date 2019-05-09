@@ -9,6 +9,12 @@ FROM Corporate;
 --2
 SELECT OrderNumber, OrderTotal
 FROM Orders;
+
+--3
+SELECT CID, SUM(AmountPaid) from Payments
+NATURAL JOIN Orders 
+WHERE OrderDate >= '2017-05-05' GROUP BY CID ORDER BY SUM(AmountPaid) DESC LIMIT 3;
+
 --8
 SELECT Customer.CID, Customer.CName, Customer.cash FROM Customer
 ORDER BY cash DESC LIMIT 3;
