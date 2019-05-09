@@ -13,6 +13,9 @@ FROM Orders;
 SELECT Customer.CID, Customer.CName, Customer.cash FROM Customer
 ORDER BY cash DESC LIMIT 3;
 
+--14
+SELECT itemName, count(itemName) AS "skilled " from SousChef GROUP BY itemName order by count(itemName) ASC;
+
 --15
 SELECT Customer.CID, Customer.CName FROM Customer
 WHERE CID IN (SELECT CID FROM Corporate);
