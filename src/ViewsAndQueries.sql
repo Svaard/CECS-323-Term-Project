@@ -53,7 +53,8 @@ WHERE OrderDate >= DATE_SUB(now(), INTERVAL 1 YEAR)
 GROUP BY itemName ORDER BY (SUM(Quantity * price)) DESC LIMIT 5;
                                 
 --13
-                                
+SELECT Mentor, COUNT(Mentor), GROUP_CONCAT(itemName) AS "Taught" from Mentorships
+GROUP BY Mentor;                                
 
 --14
 SELECT itemName, count(itemName) AS "skilled " from SousChef GROUP BY itemName order by count(itemName) ASC;
