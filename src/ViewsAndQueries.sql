@@ -15,6 +15,11 @@ SELECT CID, CName, SUM(AmountPaid) from Payments
 NATURAL JOIN Orders NATURAL JOIN Customer
 WHERE OrderDate >= '2017-05-05' GROUP BY CID ORDER BY SUM(AmountPaid) DESC LIMIT 3;
 
+--4
+SELECT EID, eName, COUNT(itemName), GROUP_CONCAT(itemName) from SousChef 
+NATURAL JOIN Employee GROUP BY EID HAVING COUNT(itemName) >= 3; 
+
+
 --8
 SELECT Customer.CID, Customer.CName, Customer.cash FROM Customer
 ORDER BY cash DESC LIMIT 3;
