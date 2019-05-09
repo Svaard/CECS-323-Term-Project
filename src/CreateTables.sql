@@ -39,9 +39,10 @@ CREATE TABLE CategoryLookupTable (
   CONSTRAINT CategoryLookupTable_pk PRIMARY KEY (category)
 );
 
+
 --table for looking up Menus
 CREATE TABLE MenuLookupTable (
-  menu VARCHAR(20) NOT NULL CHECK (menu IN('evening', 'lunch', 'children', 'Sunday Buffet')),
+  menu VARCHAR(25) NOT NULL CHECK (menu IN('evening', 'lunch', 'children', 'Sunday Brunch Buffet')),
   CONSTRAINT MenuLookupTable_pk PRIMARY KEY (menu)
 );
 
@@ -59,7 +60,7 @@ CREATE TABLE Customer (
 CREATE TABLE MenuItem (
   itemName    VARCHAR(100) NOT NULL,
   spiceValue  VARCHAR(10) NOT NULL,
-  menu        VARCHAR(20) NOT NULL,
+  menu        VARCHAR(25) NOT NULL,
   price       FLOAT,
   itemSize    INT,
   CONSTRAINT MenuItem_pk PRIMARY KEY (itemName, spiceValue, menu, itemSize),
@@ -104,8 +105,8 @@ CREATE TABLE Phone (
 
 --table for Corporate
 CREATE TABLE Corporate (
-  AddressID     INT NOT NULL,
   CID           INT NOT NULL,
+  AddressID     INT NOT NULL,
   Organization  VARCHAR(70) NOT NULL,
   PhoneNum      VARCHAR(20) NOT NULL,
   CONSTRAINT Corporate_pk PRIMARY KEY (AddressID, CID, Organization, PhoneNum),
@@ -137,14 +138,16 @@ CREATE TABLE PaymentType (
   CONSTRAINT PaymentType_pk PRIMARY KEY (PaymentType)
 );
 
+
 --table for Payments
 CREATE TABLE Payments (
+  TransactionNumber INT NOT NULL,
   OrderNumber INT NOT NULL,
   PaymentType VARCHAR(20) NOT NULL,
   CID         INT NOT NULL,
   AmountPaid  FLOAT,
   Gratuity    FLOAT,
-  CONSTRAINT Payments_pk PRIMARY KEY (OrderNumber, PaymentType, CID),
+  CONSTRAINT Payments_pk PRIMARY KEY (TransactionNumber, OrderNumber, PaymentType, CID),
   CONSTRAINT Payments_fk1 FOREIGN KEY (OrderNumber) REFERENCES Orders (OrderNumber),
   CONSTRAINT Payments_fk2 FOREIGN KEY (PaymentType) REFERENCES PaymentType (PaymentType),
   CONSTRAINT Payments_fk3 FOREIGN KEY (CID) REFERENCES Customer(CID)
@@ -252,11 +255,16 @@ CREATE TABLE Maitre (
 );
 
 --table for Sous Chefs
+-- DELETE FROM SousChef;
+-- DELETE FROM Mentorships;
+-- DROP TABLE Mentorships;
+-- DROP TABLE SousChef;
 CREATE TABLE SousChef (
   EID       INT NOT NULL,
-  menuItems VARCHAR(255),
-  CONSTRAINT SousChef_pk PRIMARY KEY (EID),
-  CONSTRAINT SousChef_fk FOREIGN KEY (EID) REFERENCES Chef (EID)
+  itemName VARCHAR(100),
+  CONSTRAINT SousChef_pk PRIMARY KEY (EID, itemName),
+  CONSTRAINT SousChef_fk FOREIGN KEY (EID) REFERENCES Chef (EID),
+  CONSTRAINT SousChef_fk2 FOREIGN KEY (itemName) REFERENCES MenuItem (itemName)
 );
 
 --table for the Wait Staff
