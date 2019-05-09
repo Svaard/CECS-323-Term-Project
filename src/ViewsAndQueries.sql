@@ -1,3 +1,12 @@
+--15 OK
+SELECT Customer.CID, Customer.CName FROM Customer
+WHERE CID IN (SELECT CID FROM Corporate);
+
+--16
+SELECT itemname, menu, price
+FROM MenuItem
+ORDER BY menu ASC;
+
 --17
 SELECT Employee.eName, Employee.EID, Employee.shift FROM Employee
 LEFT JOIN Chef ON Employee.EID = Chef.EID
