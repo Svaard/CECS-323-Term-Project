@@ -6,6 +6,9 @@ UNION
 SELECT Corporate.Organization AS "Name", 'Corporation' AS "Category", Corporate.PhoneNum AS "Contact"
 FROM Corporate;
 
+--2
+SELECT OrderNumber, OrderTotal
+FROM Orders;
 --8
 SELECT Customer.CID, Customer.CName, Customer.cash FROM Customer
 ORDER BY cash DESC LIMIT 3;
